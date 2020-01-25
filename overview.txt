@@ -1,0 +1,13 @@
+To build
+
+1: Navbar 
+	- Main (contains search field)
+	- Recommendations list 
+	- History (previously rated movies)
+
+2: Searchbar & MovieCard
+	- Allows to Search for movie (using API) 
+	- Displays the searched movieCard (with basic info)
+
+3: Rating system
+	- Allows 2 parties to rate the movie in the movie card
