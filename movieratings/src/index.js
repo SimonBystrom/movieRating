@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom'
 import {ContextProvider} from "./Context"
+import 'remixicon/fonts/remixicon.css'
 
 ReactDOM.render(
 <ContextProvider>
