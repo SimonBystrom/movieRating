@@ -3,57 +3,61 @@ import {Context} from "../Context"
 
 
 /*
-
+1: Make it so clicking one of the FoundSearchItem Divs rerenders the page showing only the selected title with additional info
 2: properly render the genres (using <span> tags)
 2.1: get the genre key array from a context call
+3: add fail state (if API fails to generate any results)
 */
 
 
 function MovieCard(props){
-    const [movieData, setMovieData] = useState([])
+    const [movieData, setMovieData] = useState()
+    const [foundSearchItems, setFoundSearchItems] = useState()
     const {searchTarget} = useContext(Context)
 
+
+    
     const urlMovieData = 
     `https://api.themoviedb.org/3/search/movie?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&query=
     ${searchTarget}&page=1&include_adult=false`
-    {useEffect(() => {
+    
+    useEffect(() => {
        fetch(urlMovieData)
            .then(res => res.json())
-           .then(data => setMovieData(data.results[0]))
-
-           
-
-   }, [searchTarget])}
+            .then(data =>  {
+                //Creates the initial search items
+                setFoundSearchItems(data.results.map(item => 
+                    <div key={item.id} onClick={() => console.log(item.title)}>
+                        <h3>{item.title}</h3>
+                        <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} width="200" heigh="400"></img>
+                    </div>))
+                // fills in the movieData info for use when generating the main title
+                setMovieData(data.results.map(item => 
+                    [
+                        {
+                            title: item.title, 
+                            release_date: item.release_date,
+                            overview: item.overview,
+                            poster_path: item.poster_path,
+                            genre_ids: item.genre_ids,
+                            vote_average: item.vote_average
+                        
+                        }
+                    ] ))
+            })
+    }, [searchTarget])
     
 
-   const {
-        title,
-        release_date,
-        overview,
-        poster_path,
-        genre_ids,
-        vote_average
-    } = movieData
+
 
 
     return (
         // Main container
-        <div>
-            <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`}></img>
-            <div></div>
-            {/*Movie info container */}
-            <div>
-                <h1>{title}</h1>
-                <small>Release Date: {release_date} </small>
-                <h4>Rating: {vote_average}</h4>
-                <p>{overview}</p>
-                {/*Genre info */}
-                <div>
-                    Genre info
-                </div>
-            </div>
+        <div className="MovieCardFlex">
+            {foundSearchItems}
+            {console.log(movieData)}
         </div>
     )
-}
+    }
 
 export default MovieCard
