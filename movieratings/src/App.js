@@ -1,31 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Switch, Route} from "react-router-dom"
 import './App.css';
 import Navbar from "./Components/Navbar"
 import MovieCard from "./Components/MovieCard"
+import SearchBar from "./Components/SearchBar"
+import {Context} from "./Context"
 
 /* 
-1: Create input and submit field to set the search target and pass it as props 
-to the MovieCard "properly" ->(without accidently trying to render the MovieCard from Undefined)
-
+  NEXT STEP
 */
 
 function App() {
-  //const [movieIdTarget, setMovieIdTarget] = useState("")
-  //const [searchInputValue, setSearchInputValue] = useState()
+  //Only for debugging with the console logs (setting state properly when using the Searchbar?)
+  const {searchTarget, searchInput} = useContext(Context)
 
-  
-
-  /* 
-   <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="searchInputValue"
-                value={searchInputValue}
-                onChange={handleChange}
-                ></input>
-            </form>
-    */
 
   return (
     <div className="App">
@@ -34,9 +22,13 @@ function App() {
       <Switch>
         <Route exact path="/">
           <div>
-           
+            <SearchBar />
+            {/*Debugging purpose console log */}
+            {console.log(searchInput)}
+            {console.log(searchTarget)}
+            {/*conditional render of the movie card if search term active*/}
+            {searchTarget.length > 0 ? <MovieCard movieID=""></MovieCard> : null}
             
-            <MovieCard movieID=""></MovieCard>
           </div>
             
         </Route>

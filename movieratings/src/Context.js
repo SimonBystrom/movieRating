@@ -8,18 +8,26 @@ const Context = createContext()
 
 function ContextProvider({children}) {
     
-    //const [genreList, setGenreList] = useState()
-
-     // Makes API call to get GenreList info and MovieData
-
-     //const urlGenreList = "https://api.themoviedb.org/3/genre/movie/list?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US"
-     //const urlMovieData = `https://api.themoviedb.org/3/search/movie?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&query=${movieID}&page=1&include_adult=false`
+    const [searchTarget, setSearchTarget] = useState("")
+    const [searchInput, setSearchInput] = useState("")
    
-    
+   
 
+    function searchMovie(e){
+        setSearchInput(e.target.value)
+    }
+
+    function submitSearch(e){
+        e.preventDefault()
+        setSearchTarget(searchInput)
+    }
     
     return (
-        <Context.Provider value="">
+        <Context.Provider value={{
+                                searchTarget, 
+                                searchInput,
+                                searchMovie,
+                                submitSearch}}>
             {children}
         </Context.Provider>
     )
