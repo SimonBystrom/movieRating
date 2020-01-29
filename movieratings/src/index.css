@@ -25,6 +25,11 @@ code {
 }
 
 
+.MovieCardFlex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
 
 .ri-home-4-line{
