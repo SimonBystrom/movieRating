@@ -21,13 +21,14 @@ function App() {
       
       <Switch>
         <Route exact path="/">
-          <div>
-            <SearchBar />
-            {/*conditional render of the movie card if search term active*/}
-            {searchTarget.length > 0 ? <MovieCard movieID=""></MovieCard> : null}
-            
-          </div>
-            
+            <h3>Main information of website</h3>
+        </Route>
+        <Route path="/search">
+            <div>
+                {/*conditional render of the movie card if search term active*/}
+                {searchTarget.length > 0 ? <MovieCard movieID=""></MovieCard> : null}
+                
+            </div>
         </Route>
         <Route path="/recommendations"><h3>recommendations</h3></Route>
         <Route path="/history"><h3>history</h3></Route>

@@ -2,6 +2,8 @@ import React,{ createContext, useEffect, useState } from "react"
 
 /* 
 1: call API endpoint to get the generelist info -> give to the MovieCard component to so we can render it properly! 
+2: Set searchTarget back to nothing when going back to Main page 
+(when clicking the search bar again after going to a different page, searched results should be cleared)
 */
 
 const Context = createContext()
@@ -18,14 +20,18 @@ function ContextProvider({children}) {
         setSearchInput(e.target.value)
 
     //resets the active card to allow new search
-        setActiveCard(null)
+    setActiveCard(null)
         
     }
+
+    
 
     function submitSearch(e){
         e.preventDefault()
         setSearchTarget(searchInput)
+        
     }
+
     
     return (
         <Context.Provider value={{
