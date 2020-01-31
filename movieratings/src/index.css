@@ -39,13 +39,23 @@ code {
 }
 .ri-star-line{
   font-size: 30px;
-  padding-left: 27em;
+  padding-left: 20px
   
 }
 
 .ri-book-3-line{
   font-size: 30px;
-  padding: 80px;
+  padding: 20px
+}
+
+input{
+  padding-left: 15px;
+  margin-left: 230px;
+  border-radius: 50px;
+  height: 30px;
+  width: 200px;
+  border: 1px solid lightgray;
+  outline: none;
 }
 
 a{
