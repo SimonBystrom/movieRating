@@ -11,8 +11,8 @@ import {Context} from "./Context"
 */
 
 function App() {
-  //Only for debugging with the console logs (setting state properly when using the Searchbar?)
-  const {searchTarget, searchInput} = useContext(Context)
+ 
+  const {searchTarget} = useContext(Context)
 
 
   return (
@@ -23,9 +23,6 @@ function App() {
         <Route exact path="/">
           <div>
             <SearchBar />
-            {/*Debugging purpose console log */}
-            {console.log(searchInput)}
-            {console.log(searchTarget)}
             {/*conditional render of the movie card if search term active*/}
             {searchTarget.length > 0 ? <MovieCard movieID=""></MovieCard> : null}
             

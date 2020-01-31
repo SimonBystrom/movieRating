@@ -10,11 +10,16 @@ function ContextProvider({children}) {
     
     const [searchTarget, setSearchTarget] = useState("")
     const [searchInput, setSearchInput] = useState("")
+    const [activeCard, setActiveCard] = useState()
    
    
 
     function searchMovie(e){
         setSearchInput(e.target.value)
+
+    //resets the active card to allow new search
+        setActiveCard(null)
+        
     }
 
     function submitSearch(e){
@@ -27,7 +32,9 @@ function ContextProvider({children}) {
                                 searchTarget, 
                                 searchInput,
                                 searchMovie,
-                                submitSearch}}>
+                                submitSearch,
+                                setActiveCard,
+                                activeCard}}>
             {children}
         </Context.Provider>
     )
