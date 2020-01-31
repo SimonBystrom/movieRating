@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext} from "react"
 import {Context} from "../Context"
 
 
+
 /*
-1: Make it so clicking one of the FoundSearchItem Divs rerenders the page showing only the selected title with additional info
 2: properly render the genres (using <span> tags)
 2.1: get the genre key array from a context call
 3: add fail state (if API fails to generate any results)
@@ -11,9 +11,10 @@ import {Context} from "../Context"
 
 
 function MovieCard(props){
+
     const [movieData, setMovieData] = useState()
     const [foundSearchItems, setFoundSearchItems] = useState()
-    const {searchTarget} = useContext(Context)
+    const {searchTarget, setActiveCard, activeCard} = useContext(Context)
 
 
     
@@ -27,10 +28,21 @@ function MovieCard(props){
             .then(data =>  {
                 //Creates the initial search items
                 setFoundSearchItems(data.results.map(item => 
-                    <div key={item.id} onClick={() => console.log(item.title)}>
+                <div key={item.id} 
+                // onClick Creates the active card
+                        onClick={() => setActiveCard(
+                            <div>
+                                <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}></img>
+                                <h1>{item.title}</h1>
+                                <small>Release Date: {item.release_date}</small>
+                                <h4>Rating: {item.vote_average}</h4>
+                                <p>{item.overview}</p>
+                            </div>)}>
+
                         <h3>{item.title}</h3>
                         <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} width="200" heigh="400"></img>
                     </div>))
+
                 // fills in the movieData info for use when generating the main title
                 setMovieData(data.results.map(item => 
                     [
@@ -54,7 +66,7 @@ function MovieCard(props){
     return (
         // Main container
         <div className="MovieCardFlex">
-            {foundSearchItems}
+            {activeCard ? activeCard : foundSearchItems}
             {console.log(movieData)}
         </div>
     )
