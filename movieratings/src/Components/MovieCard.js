@@ -14,9 +14,10 @@ function MovieCard(props){
 
     const [movieData, setMovieData] = useState()
     const [foundSearchItems, setFoundSearchItems] = useState()
-    const {searchTarget, setActiveCard, activeCard} = useContext(Context)
+    const {searchTarget, setActiveCard, activeCard, generateIDs, genreList} = useContext(Context)
+    
 
-
+ 
     
     const urlMovieData = 
     `https://api.themoviedb.org/3/search/movie?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&query=
@@ -37,6 +38,7 @@ function MovieCard(props){
                                 <small>Release Date: {item.release_date}</small>
                                 <h4>Rating: {item.vote_average}</h4>
                                 <p>{item.overview}</p>
+                                <div>{generateIDs(item.genre_ids)}</div>
                             </div>)}>
 
                         <h3>{item.title}</h3>
@@ -45,8 +47,8 @@ function MovieCard(props){
 
                 // fills in the movieData info for use when generating the main title
                 setMovieData(data.results.map(item => 
-                    [
-                        {
+                    {
+                        return ({
                             title: item.title, 
                             release_date: item.release_date,
                             overview: item.overview,
@@ -54,8 +56,9 @@ function MovieCard(props){
                             genre_ids: item.genre_ids,
                             vote_average: item.vote_average
                         
-                        }
-                    ] ))
+                        })
+                        
+                     } ))
             })
     }, [searchTarget])
     
@@ -67,7 +70,8 @@ function MovieCard(props){
         // Main container
         <div className="MovieCardFlex">
             {activeCard ? activeCard : foundSearchItems}
-            {console.log(movieData)}
+            {console.log(genreList)}
+            {<p>{}</p>}
         </div>
     )
     }

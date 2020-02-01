@@ -23,10 +23,10 @@ function App() {
         <Route exact path="/">
             <h3>Main information of website</h3>
         </Route>
-        <Route path="/search">
+        <Route path="/search/">
             <div>
                 {/*conditional render of the movie card if search term active*/}
-                {searchTarget.length > 0 ? <MovieCard movieID=""></MovieCard> : null}
+                {searchTarget.length > 0 ? <MovieCard movieID=""></MovieCard> : null}  
                 
             </div>
         </Route>
