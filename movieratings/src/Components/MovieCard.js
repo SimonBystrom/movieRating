@@ -46,7 +46,8 @@ function MovieCard(props){
                     </div>))
 
                 // fills in the movieData info for use when generating the main title
-                setMovieData(data.results.map(item => 
+               /* 
+                    setMovieData(data.results.map(item => 
                     {
                         return ({
                             title: item.title, 
@@ -59,6 +60,7 @@ function MovieCard(props){
                         })
                         
                      } ))
+                     */
             })
     }, [searchTarget])
     
@@ -70,8 +72,6 @@ function MovieCard(props){
         // Main container
         <div className="MovieCardFlex">
             {activeCard ? activeCard : foundSearchItems}
-            {console.log(genreList)}
-            {<p>{}</p>}
         </div>
     )
     }
