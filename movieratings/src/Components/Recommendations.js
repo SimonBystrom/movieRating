@@ -1,6 +1,8 @@
 import React,{useEffect, useState, useContext} from "react"
 import {Context} from "../Context"
 
+
+//test list of highly rated titles
 const testList = [
     {
         title: "Se7en",
@@ -38,8 +40,10 @@ const testList = [
 ]
 
 
-
-
+// generates an array of the ID's of the highly rated titles
+const IDs= testList.map(item => {
+    return item.id
+})
 
 
 
@@ -47,10 +51,8 @@ function Recommendations(){
     const [recommendationsList, setRecommendationsList] = useState([])
     const {setActiveCard, activeCard, generateIDs} = useContext(Context)
 
-    const IDs= testList.map(item => {
-        return item.id
-    })
-
+    
+// sets the state for all incoming (convereted to json) data for each fetch method
     function process(prom){
         prom.then(data => {
             setRecommendationsList((prevState) => [...prevState, data.results])
@@ -59,6 +61,8 @@ function Recommendations(){
     
 
     useEffect(()=>{
+
+    //Fetches all the lists of recommendations for the different titles
             let list1 = fetch(`https://api.themoviedb.org/3/movie/
                                 ${IDs[0]}/recommendations?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&page=1`)
         
@@ -68,6 +72,12 @@ function Recommendations(){
             let list3 = fetch(`https://api.themoviedb.org/3/movie/
                                 ${IDs[2]}/recommendations?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&page=1`)
         
+    /*
+    makes a complete return promise that will loop over each returned object 
+    and make a json conversation & add the info to recommendation array
+
+    https://www.youtube.com/watch?time_continue=397&v=HTA7pEDGZEU&feature=emb_title
+    */
             Promise.all([list1, list2, list3])
                 .then(data => {
                     data.forEach(data => {
