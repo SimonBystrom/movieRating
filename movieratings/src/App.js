@@ -3,7 +3,7 @@ import {Switch, Route} from "react-router-dom"
 import './App.css';
 import Navbar from "./Components/Navbar"
 import MovieCard from "./Components/MovieCard"
-import SearchBar from "./Components/SearchBar"
+import Recommendations from "./Components/Recommendations"
 import {Context} from "./Context"
 
 /* 
@@ -30,7 +30,9 @@ function App() {
                 
             </div>
         </Route>
-        <Route path="/recommendations"><h3>recommendations</h3></Route>
+        <Route path="/recommendations">
+            <Recommendations />
+        </Route>
         <Route path="/history"><h3>history</h3></Route>
       </Switch>
     </div>
