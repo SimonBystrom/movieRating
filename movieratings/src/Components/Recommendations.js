@@ -1,12 +1,29 @@
 import React,{useEffect, useState, useContext} from "react"
 import {Context} from "../Context"
 
+import useRecommendations from "../Hooks/useRecommendations"
+
+
+
+/* 
+1: Top 3 movie Info comes in (array of objects with title, id, genre, rating info)  (R)
+2: API calls the get recommendations method -> returns one array with 3 arrays of objects (with all movie info)  (R)
+3: Create a "flat" array (R)
+4: delete items matching already watched titles   (watchedArr is a flat array with the watched ID's as integers) (r)
+4.1: loop over array  and find which titles are repeated (these will go in the recommendation pile)
+5: loop over the recommendation pile and put them in order depending on rating
+6: Display the movies in order of rating
+7: Make movies clickable (activeCard) for more info
+
+*** MOVIE RECOMMENDATION FUNCTION ***
+-> to find matches, the titles needs to have matching genres , if not small chance of finding matching movie recommended titles
+*/
 
 //test list of highly rated titles
 const testList = [
     {
-        title: "Se7en",
-        id: 807,
+        title: "GoodFellas",
+        id: 769,
         genre_id: [
             80,
             9648,
@@ -27,8 +44,8 @@ const testList = [
     },
 
     {
-        title: "GoodFellas",
-        id: 769,
+        title: "Apocalypse Now",
+        id: 28,
         genre_id: [
             18,
             80
@@ -39,59 +56,35 @@ const testList = [
 
 ]
 
+const testWatched = [
+    "Se7en",
+    "The Usual Suspects",
+    "GoodFellas"
+]
 
-// generates an array of the ID's of the highly rated titles
-const IDs= testList.map(item => {
-    return item.id
-})
+
 
 
 
 function Recommendations(){
-    const [recommendationsList, setRecommendationsList] = useState([])
+
     const {setActiveCard, activeCard, generateIDs} = useContext(Context)
 
-    
-// sets the state for all incoming (convereted to json) data for each fetch method
-    function process(prom){
-        prom.then(data => {
-            setRecommendationsList((prevState) => [...prevState, data.results])
-        })
-    }
+    const recommendationList = useRecommendations(testList, testWatched)
+
     
 
-    useEffect(()=>{
+    
 
-    //Fetches all the lists of recommendations for the different titles
-            let list1 = fetch(`https://api.themoviedb.org/3/movie/
-                                ${IDs[0]}/recommendations?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&page=1`)
-        
-            let list2 = fetch(`https://api.themoviedb.org/3/movie/
-                                ${IDs[1]}/recommendations?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&page=1`)
-            
-            let list3 = fetch(`https://api.themoviedb.org/3/movie/
-                                ${IDs[2]}/recommendations?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&page=1`)
-        
-    /*
-    makes a complete return promise that will loop over each returned object 
-    and make a json conversation & add the info to recommendation array
-
-    https://www.youtube.com/watch?time_continue=397&v=HTA7pEDGZEU&feature=emb_title
-    */
-            Promise.all([list1, list2, list3])
-                .then(data => {
-                    data.forEach(data => {
-                        process(data.json())
-                    })
-                })
-
-    }, [])
 
     return(
-        <div className="MovieCardFlex">
-            {}
-            {console.log(recommendationsList)}
-        </div>
+       <div>
+       {console.log(recommendationList)}
+
+       </div>
+        
+    
+        
     )
 }
 

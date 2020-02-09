@@ -1,7 +1,7 @@
 import React,{ createContext, useEffect, useState } from "react"
 
 /* 
-1: call API endpoint to get the generelist info -> give to the MovieCard component to so we can render it properly! 
+
 */
 
 const Context = createContext()
