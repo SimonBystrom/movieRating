@@ -41,9 +41,12 @@ function ContextProvider({children}) {
 
     function searchMovie(e){
         setSearchInput(e.target.value)
+
+        //Adding this line makes search be more "interactive" similar to Netflix -> Creates new search with every keystroke
+    //  setSearchTarget(searchInput)
         console.log(searchInput)
     //resets the active card to allow new search
-    setActiveCard(null)
+        setActiveCard(null)
         
     }
 
@@ -61,6 +64,10 @@ function ContextProvider({children}) {
         setSearchInput("")
     }
 
+    function returnPreviousPage(){
+        setActiveCard(null)
+    }
+
  
 
     
@@ -74,7 +81,8 @@ function ContextProvider({children}) {
                                 activeCard,
                                 clearSearch,
                                 generateIDs,
-                                genreList}}>
+                                genreList,
+                                returnPreviousPage}}>
             {children}
         </Context.Provider>
     )

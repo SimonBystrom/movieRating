@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext} from "react"
 import {Context} from "../Context"
+import BackArrow from "./BackArrow"
 
 
 
@@ -33,12 +34,15 @@ function MovieCard(props){
                 // onClick Creates the active card
                         onClick={() => setActiveCard(
                             <div>
-                                <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}></img>
-                                <h1>{item.title}</h1>
-                                <small>Release Date: {item.release_date}</small>
-                                <h4>Rating: {item.vote_average}</h4>
-                                <p>{item.overview}</p>
-                                <div>{generateIDs(item.genre_ids)}</div>
+                                <BackArrow />
+                                <div>
+                                    <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}></img>
+                                    <h1>{item.title}</h1>
+                                    <small>Release Date: {item.release_date}</small>
+                                    <h4>Rating: {item.vote_average}</h4>
+                                    <p>{item.overview}</p>
+                                    <div>{generateIDs(item.genre_ids)}</div>
+                                </div>
                             </div>)}>
 
                         <h3>{item.title}</h3>
@@ -61,6 +65,9 @@ function MovieCard(props){
                         
                      } ))
                      */
+            })
+            .catch(err => {
+                console.log(err)
             })
     }, [searchTarget])
     
