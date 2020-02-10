@@ -37,9 +37,9 @@ code {
   padding: 20px;
   
 }
-.ri-star-line{
-  font-size: 30px;
-  padding-left: 20px
+.ri-star-line, .ri-star-fill{
+  font-size: 20px;
+
   
 }
 
@@ -72,6 +72,15 @@ a{
   margin: 5px;
 }
 
-.ri-arrow-left-s-line{
+.ri-arrow-left-s-line {
   font-size: 40px;
+}
+
+.stars-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  
+
 }

@@ -6,6 +6,8 @@ import MovieCard from "./Components/MovieCard"
 import Recommendations from "./Components/Recommendations"
 import {Context} from "./Context"
 
+
+
 /* 
   NEXT STEP
 */
@@ -18,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      
+
       <Switch>
         <Route exact path="/">
             <h3>Main information of website</h3>
@@ -33,7 +35,9 @@ function App() {
         <Route path="/recommendations">
             <Recommendations />
         </Route>
-        <Route path="/history"><h3>history</h3></Route>
+        <Route path="/history">
+            <h3>history</h3>
+        </Route>
       </Switch>
     </div>
   );

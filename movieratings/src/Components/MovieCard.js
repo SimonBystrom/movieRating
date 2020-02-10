@@ -30,20 +30,24 @@ function MovieCard(props){
             .then(data =>  {
                 //Creates the initial search items
                 setFoundSearchItems(data.results.map(item => 
-                <div key={item.id} 
+                    <div key={item.id} 
                 // onClick Creates the active card
-                        onClick={() => setActiveCard(
-                            <div>
-                                <BackArrow />
-                                <div>
-                                    <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}></img>
-                                    <h1>{item.title}</h1>
-                                    <small>Release Date: {item.release_date}</small>
-                                    <h4>Rating: {item.vote_average}</h4>
-                                    <p>{item.overview}</p>
-                                    <div>{generateIDs(item.genre_ids)}</div>
-                                </div>
-                            </div>)}>
+                        onClick={() => {
+                                setActiveCard(
+                                    <div>
+                                        <BackArrow />
+                                        <div>
+                                            <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}></img>
+                                            <h1>{item.title}</h1>
+                                            <small>Release Date: {item.release_date}</small>
+                                            <h4>Rating: {item.vote_average}</h4>
+                                            <p>{item.overview}</p>
+                                            <div>{generateIDs(item.genre_ids)}</div>
+                                        </div>
+                                    </div>)
+                            //set window view back to normal non-scrolled
+                                window.scrollTo(0,0)
+                            }}>
 
                         <h3>{item.title}</h3>
                         <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} width="200" heigh="400"></img>
