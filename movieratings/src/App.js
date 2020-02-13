@@ -6,6 +6,8 @@ import MovieCard from "./Components/MovieCard"
 import Recommendations from "./Components/Recommendations"
 import {Context} from "./Context"
 
+import StarRating from "./Components/StarRating"
+
 
 
 /* 

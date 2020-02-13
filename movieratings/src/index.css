@@ -78,8 +78,8 @@ a{
 
 .stars-container{
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: start;
   
 

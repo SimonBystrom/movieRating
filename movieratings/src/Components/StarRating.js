@@ -1,112 +1,106 @@
 import React, {useState} from "react"
+import { checkPropTypes } from "prop-types"
 
 
-// streamline the declaration of the stars by making in into a function that renders the stars and takes the user as a parameter?
 
 
-function StarRatings(){
+function StarRatings(movieData){
     const [ratingOne, setRatingOne] = useState()
     const [ratingTwo, setRatingTwo] = useState()
-
-
-    let star1 =   
+    
+// Generates the unfilled Star
+    let star =   (user, rating) => {
+        return(
         <i          
-            //onHover={} 
-            onClick={() => rateMovie("user1", 1)}
+            //onMouseOut={() => console.log("unhovered")}
+            // onPointerEnter={() => rateHover(user, rating)} 
+            
+            onClick={() => rateMovie(user, rating, false)}
             className="ri-star-line"
-        ></i>
-
-    let star1Filled = 
-        <i 
-            className="ri-star-fill"
-        ></i>
-
-    let star2 =   
-        <i          
+        ></i>)
+    }
+// Generates the filled Star
+    let starFilled = (user, rating) => {
+        return(
+            <i          
             //onHover={} 
-            onClick={() => rateMovie("user1", 2)}
-            className="ri-star-line"
-        ></i>
-
-    let star2Filled = 
-        <i 
+            onClick={() => rateMovie(user, rating)}
             className="ri-star-fill"
-        ></i>
+            ></i>
+        )
+    }
 
+// onClikc function for the saved ratings
+    function saveRating(data){
 
-    let star3 =   
-        <i          
-            //onHover={} 
-            onClick={() => rateMovie("user1", 3)}
-            className="ri-star-line"
-        ></i>
+    //information gets saved to server 
 
-    let star3Filled = 
-        <i 
-            className="ri-star-fill"
-        ></i>
-
-
-    let star4 =   
-        <i          
-            //onHover={} 
-            onClick={() => rateMovie("user1", 4)}
-            className="ri-star-line"
-        ></i>
-
-    let star4Filled = 
-        <i 
-            className="ri-star-fill"
-        ></i>
-
-
-    let star5 =   
-        <i          
-            //onHover={} 
-            onClick={() => rateMovie("user1", 5)}
-            className="ri-star-line"
-        ></i>
-
-    let star5Filled = 
-        <i 
-            className="ri-star-fill"
-        ></i>
-
-
-      
-
+        console.log(ratingOne, ratingTwo)
+        console.log(data.movieData)
+    }
+  
+// onClick function for the star -> sets Rating for the user -> fills in star
     function rateMovie(user, rating){
         if(user === "user1"){
             setRatingOne(rating)
         } else if(user === "user2"){
             setRatingTwo(rating)
-        }
+        } 
         console.log(ratingOne, ratingTwo)
+       
     }
+
+// Conditional rendering for the stars
+    let starRender = (user, rating) => 
+    {
+        
+        
+                return(
+                    rating === 1 ? 
+                        <div>{starFilled(user, 1)}{star(user, 2)}{star(user, 3)}{star(user, 4)}{star(user, 5)}</div> 
+                    : 
+                    rating === 2 ?
+                        <div>{starFilled(user, 1)}{starFilled(user, 2)}{star(user, 3)}{star(user, 4)}{star(user, 5)}</div>
+                    :
+                    rating === 3 ?
+                        <div>{starFilled(user, 1)}{starFilled(user, 2)}{starFilled(user, 3)}{star(user, 4)}{star(user, 5)}</div>
+                    :
+                    rating === 4 ?
+                        <div>{starFilled(user, 1)}{starFilled(user, 2)}{starFilled(user, 3)}{starFilled(user, 4)}{star(user, 5)}</div>
+                    :
+                    rating === 5 ?
+                        <div>{starFilled(user, 1)}{starFilled(user, 2)}{starFilled(user, 3)}{starFilled(user, 4)}{starFilled(user, 5)}</div>
+                    :
+                        <div>{star(user, 1)}{star(user, 2)}{star(user, 3)}{star(user, 4)}{star(user, 5)}</div>
+                )
+            
+            
+        
+            
+
+    }
+
+
     return (
-        <div className="stars-container">
-            {
-                ratingOne === 1 ? 
-                    <div>{star1Filled}{star2}{star3}{star4}{star5}</div> 
-                : 
-                ratingOne === 2 ?
-                    <div>{star1Filled}{star2Filled}{star3}{star4}{star5}</div> 
-                :
-                ratingOne === 3 ?
-                    <div>{star1Filled}{star2Filled}{star3Filled}{star4}{star5}</div>
-                :
-                ratingOne === 4 ?
-                    <div>{star1Filled}{star2Filled}{star3Filled}{star4Filled}{star5}</div>
-                :
-                ratingOne === 5 ?
-                    <div>{star1Filled}{star2Filled}{star3Filled}{star4Filled}{star5Filled}</div>
-                :
-                <div>{star1}{star2}{star3}{star4}{star5}</div>
+        <div>
+            <div className="stars-container">
+            
+                <div> 
+                {
+                starRender("user1", ratingOne)
+                    }
+                </div>
+            
+            
 
-            }
-           
-             
+                <div> 
+                {
+                starRender("user2", ratingTwo)
+                    }
+                </div>
 
+            </div>
+            <button onClick={() => saveRating(movieData)}>Save</button>
         </div>
     )
 }
@@ -114,12 +108,4 @@ function StarRatings(){
 export default StarRatings
 
 
-/*
-nonfill
-<i class="ri-star-line"></i>
-fill
-<i class="ri-star-fill"></i>
-half
-<i class="ri-star-half-fill"></i>
 
-*/

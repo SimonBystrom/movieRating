@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext} from "react"
 import {Context} from "../Context"
 import BackArrow from "./BackArrow"
+import StarRating from "./StarRating"
 
 
 
@@ -43,6 +44,7 @@ function MovieCard(props){
                                             <h4>Rating: {item.vote_average}</h4>
                                             <p>{item.overview}</p>
                                             <div>{generateIDs(item.genre_ids)}</div>
+                                            <StarRating movieData={item}/>
                                         </div>
                                     </div>)
                             //set window view back to normal non-scrolled
