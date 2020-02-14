@@ -4,6 +4,7 @@ import { checkPropTypes } from "prop-types"
 
 /* 
 1: Fix hover in and hover off stars to show selected amount of stars  --> Add half stars?
+2: Clean up code?? 
 */
 
 function StarRatings(movieData){
@@ -34,7 +35,7 @@ function StarRatings(movieData){
             ></i>
         )
     }
-
+// Generates gold star
     let goldStar = () => {
         return(
             <i 
@@ -44,7 +45,13 @@ function StarRatings(movieData){
         )
     }
 
-// onClikc function for the saved ratings
+// Generates normal (unclickable) star. (used after rating has been set)
+    let normalStar = () => {
+        return(<i className="ri-star-line" ></i>)
+        
+    }
+
+// onClick function for the saved ratings
     function saveRating(data){
 
     //information gets saved to server 
@@ -54,7 +61,7 @@ function StarRatings(movieData){
     }
 
   
-// onClick function for the star -> sets Rating for the user -> fills in star
+// PointerEnter function for the star -> sets Rating for the user -> fills in star 
     function rateMovie(user, rating){
         if(user === "user1"){
             setRatingOne(rating)
@@ -64,7 +71,7 @@ function StarRatings(movieData){
         console.log(ratingOne, ratingTwo)
        
     }
-
+// PointerLeave function for the star -> when leaving active star unfills the left star
     function unRateMovie(user, rating){
   
             if(user === "user1"){
@@ -109,11 +116,7 @@ function StarRatings(movieData){
 
     }
 
-    let normalStar = () => {
-        return(<i className="ri-star-line" ></i>)
-        
-    }
-
+// Conditional rendering for the Gold Stars
     let goldStarRender = (user, rating) => {
       
         
@@ -166,7 +169,7 @@ function StarRatings(movieData){
                 <div onClick={() => setClickedTwo(true)}> 
                 {
                     clickedTwo ?  
-                        goldStarRender("user1", ratingOne)
+                        goldStarRender("user2", ratingTwo)
                     :
                         starRender("user2", ratingTwo)
                     }

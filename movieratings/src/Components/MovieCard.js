@@ -25,6 +25,7 @@ function MovieCard(props){
     `https://api.themoviedb.org/3/search/movie?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&query=
     ${searchTarget}&page=1&include_adult=false`
     
+// Generates the search and Active Card onClick
     useEffect(() => {
        fetch(urlMovieData)
            .then(res => res.json())
@@ -55,22 +56,6 @@ function MovieCard(props){
                         <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} width="200" heigh="400"></img>
                     </div>))
 
-                // fills in the movieData info for use when generating the main title
-               /* 
-                    setMovieData(data.results.map(item => 
-                    {
-                        return ({
-                            title: item.title, 
-                            release_date: item.release_date,
-                            overview: item.overview,
-                            poster_path: item.poster_path,
-                            genre_ids: item.genre_ids,
-                            vote_average: item.vote_average
-                        
-                        })
-                        
-                     } ))
-                     */
             })
             .catch(err => {
                 console.log(err)
