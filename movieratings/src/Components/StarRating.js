@@ -2,20 +2,25 @@ import React, {useState} from "react"
 import { checkPropTypes } from "prop-types"
 
 
-
+/* 
+1: Fix hover in and hover off stars to show selected amount of stars  --> Add half stars?
+*/
 
 function StarRatings(movieData){
     const [ratingOne, setRatingOne] = useState()
     const [ratingTwo, setRatingTwo] = useState()
+    const [clickedOne, setClickedOne] = useState(false)
+    const [clickedTwo, setClickedTwo] = useState(false)
+   
     
 // Generates the unfilled Star
     let star =   (user, rating) => {
         return(
         <i          
-            //onMouseOut={() => console.log("unhovered")}
-            // onPointerEnter={() => rateHover(user, rating)} 
             
-            onClick={() => rateMovie(user, rating, false)}
+           onPointerEnter={() => rateMovie(user, rating)} 
+            
+          //  onClick={() => rateMovie(user, rating)}
             className="ri-star-line"
         ></i>)
     }
@@ -23,9 +28,18 @@ function StarRatings(movieData){
     let starFilled = (user, rating) => {
         return(
             <i          
-            //onHover={} 
+           onPointerLeave={() => unRateMovie(user, rating)}
             onClick={() => rateMovie(user, rating)}
             className="ri-star-fill"
+            ></i>
+        )
+    }
+
+    let goldStar = () => {
+        return(
+            <i 
+            className="ri-star-fill"
+            style={{color: 'gold'}}
             ></i>
         )
     }
@@ -38,6 +52,7 @@ function StarRatings(movieData){
         console.log(ratingOne, ratingTwo)
         console.log(data.movieData)
     }
+
   
 // onClick function for the star -> sets Rating for the user -> fills in star
     function rateMovie(user, rating){
@@ -49,6 +64,20 @@ function StarRatings(movieData){
         console.log(ratingOne, ratingTwo)
        
     }
+
+    function unRateMovie(user, rating){
+  
+            if(user === "user1"){
+                setRatingOne(rating - 1)
+            } else if(user === "user2"){
+                setRatingTwo(rating - 1)
+            } 
+        
+        
+        console.log(ratingOne, ratingTwo)
+       
+    }
+
 
 // Conditional rendering for the stars
     let starRender = (user, rating) => 
@@ -80,22 +109,66 @@ function StarRatings(movieData){
 
     }
 
+    let normalStar = () => {
+        return(<i className="ri-star-line" ></i>)
+        
+    }
+
+    let goldStarRender = (user, rating) => {
+      
+        
+        {
+            
+            
+                    return(
+                        rating === 1 ? 
+ 
+                            <div>{goldStar()}{normalStar()}{normalStar()}{normalStar()}{normalStar()}</div> 
+                        : 
+                        rating === 2 ?
+                            <div>{goldStar()}{goldStar()}{normalStar()}{normalStar()}{normalStar()}</div>
+                        :
+                        rating === 3 ?
+                            <div>{goldStar()}{goldStar()}{goldStar()}{normalStar()}{normalStar()}</div>
+                        :
+                        rating === 4 ?
+                            <div>{goldStar()}{goldStar()}{goldStar()}{goldStar()}{normalStar()}</div>
+                        :
+                        rating === 5 ?
+                            <div>{goldStar()}{goldStar()}{goldStar()}{goldStar()}{goldStar()}</div>
+                        :
+                            <div>{star(user, 1)}{star(user, 2)}{star(user, 3)}{star(user, 4)}{star(user, 5)}</div>
+                    )
+                
+                
+            
+                
+    
+        }
+    }
+
 
     return (
         <div>
             <div className="stars-container">
             
-                <div> 
+                <div onClick={() => setClickedOne(true)}> 
                 {
-                starRender("user1", ratingOne)
+                    clickedOne ?  
+                        goldStarRender("user1", ratingOne)
+                    :
+                        starRender("user1", ratingOne)
                     }
                 </div>
             
             
 
-                <div> 
+                <div onClick={() => setClickedTwo(true)}> 
                 {
-                starRender("user2", ratingTwo)
+                    clickedTwo ?  
+                        goldStarRender("user1", ratingOne)
+                    :
+                        starRender("user2", ratingTwo)
                     }
                 </div>
 
@@ -106,6 +179,7 @@ function StarRatings(movieData){
 }
 
 export default StarRatings
+
 
 
 
