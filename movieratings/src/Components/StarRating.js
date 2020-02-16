@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { checkPropTypes } from "prop-types"
+
 
 
 /* 
@@ -118,11 +118,7 @@ function StarRatings(movieData){
 
 // Conditional rendering for the Gold Stars
     let goldStarRender = (user, rating) => {
-      
-        
-        {
-            
-            
+    
                     return(
                         rating === 1 ? 
  
@@ -143,11 +139,6 @@ function StarRatings(movieData){
                             <div>{star(user, 1)}{star(user, 2)}{star(user, 3)}{star(user, 4)}{star(user, 5)}</div>
                     )
                 
-                
-            
-                
-    
-        }
     }
 
 

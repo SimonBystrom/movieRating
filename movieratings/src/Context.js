@@ -21,22 +21,25 @@ function ContextProvider({children}) {
                 setGenreList(data.genres)
             })
     }, [])
-
     
-    function generateIDs(item){
+    
+    function generateGenreIDs(item){
         let genre = ""
+        
 
         //loops over all the genre_id's for the selected activeMovieCard
             for(let i = 0; i < item.length; i++){
                 // filters the genrelist for matches to the activeMovieCards genre_id's and adds them to 'genre'
                 genreList.filter(id => {
-                    if(id.id === item[i])
-                 genre += id.name + " "})
+                    if(id.id === item[i]){
+                        genre += id.name + ","
+                    }
+                })
                 
                 
             }
             //creates split seperated array of the string values in genre and maps over them creating a <span> for each
-            return genre.split(" ").map(g => ( <span className="genre" key={g}>{g}</span> ))
+            return genre.split(",").map(g => ( <span className="genre" key={g}>{g}</span> ))
         }
 
     function searchMovie(e){
@@ -80,7 +83,7 @@ function ContextProvider({children}) {
                                 setActiveCard,
                                 activeCard,
                                 clearSearch,
-                                generateIDs,
+                                generateGenreIDs,
                                 genreList,
                                 returnPreviousPage}}>
             {children}

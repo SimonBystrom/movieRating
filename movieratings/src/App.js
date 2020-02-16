@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext} from 'react';
 import {Switch, Route} from "react-router-dom"
 import './App.css';
 import Navbar from "./Components/Navbar"
@@ -6,7 +6,7 @@ import MovieCard from "./Components/MovieCard"
 import Recommendations from "./Components/Recommendations"
 import {Context} from "./Context"
 
-import StarRating from "./Components/StarRating"
+
 
 
 
@@ -17,7 +17,7 @@ import StarRating from "./Components/StarRating"
   2: Fix the Recommendations
   3: Add Database saving functionality 
   4: Add Logins? 
-  
+
 */
 
 function App() {

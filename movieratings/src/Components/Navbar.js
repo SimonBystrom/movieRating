@@ -12,7 +12,7 @@ function Navbar(){
             </Link>
             
             <Link to="/" onClick={clearSearch}>
-                <img src="https://fontmeme.com/permalink/200127/8f102e93957aabf7a387f12495c511d9.png"></img>
+                <img alt="" src="https://fontmeme.com/permalink/200127/8f102e93957aabf7a387f12495c511d9.png"></img>
             </Link>
 
             <Link to="/search">
