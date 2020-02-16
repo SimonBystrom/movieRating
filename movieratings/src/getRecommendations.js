@@ -48,7 +48,7 @@ export async function getRecommendations(likedTitles, watchedTitles) {
 
     3: maps the array (sorten after highest count / vote_average) to remove the "count" key
 
-    4: slice the array to only show the top 10 results
+    4: slice the array to only show the top __ results
 
     5: Returns the array 
   */

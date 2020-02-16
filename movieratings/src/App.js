@@ -10,8 +10,10 @@ import { Context } from "./Context";
   NEXT STEPS
   
   1: Add Footer with The Movie DB logo (legal)
-  3: Add Database saving functionality 
-  4: Add Logins? 
+  3: Add Database saving functionality (watchedList)
+  3.5: Create a top 3 of the titles in the watchedList according to userSubmitted score / average_rating 
+  (sort function similar to the one in getRecommendations)
+  4: Add Logins? -> Needs to create database
 
 */
 

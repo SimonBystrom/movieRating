@@ -6,13 +6,14 @@ import { getRecommendations } from "../getRecommendations";
 import BackArrow from "./BackArrow"
 
 /* 
+  Recommendations needs to get information to feed into the getRecommendation call in the useAsync function
 */
 
 //test list of highly rated titles
 const testList = [
   {
-    title: "GoodFellas",
-    id: 769,
+    title: "Moana",
+    id: 277834,
     genre_id: [80, 9648, 53],
     rating: 9.4
   },
@@ -25,8 +26,8 @@ const testList = [
   },
 
   {
-    title: "Apocalypse Now",
-    id: 28,
+    title: "Frozen",
+    id: 109445,
     genre_id: [18, 80],
     rating: 9.0
   }
@@ -75,8 +76,8 @@ function Recommendations() {
       <img
         alt=""
         src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-        width="200"
-        heigh="350"
+        width="270"
+        heigh="450"
       ></img>
     </div>
   ))
