@@ -10,7 +10,6 @@ import { Context } from "./Context";
   NEXT STEPS
   
   1: Add Footer with The Movie DB logo (legal)
-  2: Fix the Recommendations
   3: Add Database saving functionality 
   4: Add Logins? 
 

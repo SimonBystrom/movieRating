@@ -3,19 +3,9 @@ import { useAsync } from "react-use";
 import { Context } from "../Context";
 
 import { getRecommendations } from "../getRecommendations";
+import BackArrow from "./BackArrow"
 
 /* 
-1: Top 3 movie Info comes in (array of objects with title, id, genre, rating info)  (R)
-2: API calls the get recommendations method -> returns one array with 3 arrays of objects (with all movie info)  (R)
-3: Create a "flat" array (R)
-4: delete items matching already watched titles   (watchedArr is a flat array with the watched ID's as integers) (r)
-4.1: loop over array  and find which titles are repeated (these will go in the recommendation pile)
-5: loop over the recommendation pile and put them in order depending on rating
-6: Display the movies in order of rating
-7: Make movies clickable (activeCard) for more info
-
-*** MOVIE RECOMMENDATION FUNCTION ***
--> to find matches, the titles needs to have matching genres , if not small chance of finding matching movie recommended titles
 */
 
 //test list of highly rated titles
@@ -45,15 +35,59 @@ const testList = [
 const testWatched = [{ id: 500 }];
 
 function Recommendations() {
-  const { setActiveCard, activeCard, generateIDs } = useContext(Context);
+  const { setActiveCard, activeCard, generateGenreIDs } = useContext(Context);
   const [recommendations, setRecommendations] = useState([]);
 
+// won't do anything until we get the recommendations Array from getRecommendations
   useAsync(async () => {
     const recommendationList = await getRecommendations(testList, testWatched);
     setRecommendations(recommendationList);
   }, []);
 
-  return <div>{JSON.stringify(recommendations.map(x => x.title))}</div>;
+
+// Creates the JSX from the items we got from getRecommendations
+  let recommendationsRender = recommendations.map(item => (
+    <div
+      key={item.id}
+      // onClick Creates the active card
+      onClick={() => {
+        setActiveCard(
+          <div>
+            <BackArrow />
+            <div>
+              <img
+                alt=""
+                src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+              ></img>
+              <h1>{item.title}</h1>
+              <small>Release Date: {item.release_date}</small>
+              <h4>Rating: {item.vote_average}</h4>
+              <p>{item.overview}</p>
+              <div>{generateGenreIDs(item.genre_ids)}</div>
+              
+            </div>
+          </div>
+        );
+        //set window view back to normal non-scrolled
+        window.scrollTo(0, 0);
+      }}
+    >
+      <img
+        alt=""
+        src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+        width="200"
+        heigh="350"
+      ></img>
+    </div>
+  ))
+  return (
+    <div className="MovieCardFlex">
+    
+      {activeCard ? activeCard : recommendationsRender}
+    
+    
+    </div>
+  )
 }
 
 export default Recommendations;
