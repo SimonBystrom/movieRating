@@ -1,19 +1,19 @@
-import React, {useContext} from "react"
-import {Context} from "../Context"
+import React, { useContext } from "react";
+import { Context } from "../Context";
 
-function SearchBar(){
-    const {searchMovie, submitSearch, searchInput} = useContext(Context)
+function SearchBar() {
+  const { searchMovie, submitSearch, searchInput } = useContext(Context);
 
-    return(
-        <form onSubmit={submitSearch}>
-        <input
-          type="text"
-          name={searchInput}
-          value={searchInput}
-          onChange={searchMovie}
-          ></input>
-      </form>
-    )
+  return (
+    <form onSubmit={submitSearch}>
+      <input
+        type="text"
+        name={searchInput}
+        value={searchInput}
+        onChange={searchMovie}
+      ></input>
+    </form>
+  );
 }
 
-export default SearchBar
+export default SearchBar;

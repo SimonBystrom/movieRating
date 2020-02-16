@@ -1,9 +1,8 @@
-import React,{useEffect, useState, useContext} from "react"
-import {Context} from "../Context"
+import React, { useState, useContext } from "react";
+import { useAsync } from "react-use";
+import { Context } from "../Context";
 
-import useRecommendations from "../Hooks/useRecommendations"
-
-
+import { getRecommendations } from "../getRecommendations";
 
 /* 
 1: Top 3 movie Info comes in (array of objects with title, id, genre, rating info)  (R)
@@ -21,71 +20,40 @@ import useRecommendations from "../Hooks/useRecommendations"
 
 //test list of highly rated titles
 const testList = [
-    {
-        title: "GoodFellas",
-        id: 769,
-        genre_id: [
-            80,
-            9648,
-            53
-        ],
-        rating: 9.4
-    },
+  {
+    title: "GoodFellas",
+    id: 769,
+    genre_id: [80, 9648, 53],
+    rating: 9.4
+  },
 
-    {
-        title: "The Usual Suspects",
-        id: 629,
-        genre_id: [
-            18,
-            80,
-            53
-        ],
-        rating: 9.2
-    },
+  {
+    title: "The Usual Suspects",
+    id: 629,
+    genre_id: [18, 80, 53],
+    rating: 9.2
+  },
 
-    {
-        title: "Apocalypse Now",
-        id: 28,
-        genre_id: [
-            18,
-            80
-        ],
-        rating: 9.0
-    }
+  {
+    title: "Apocalypse Now",
+    id: 28,
+    genre_id: [18, 80],
+    rating: 9.0
+  }
+];
 
+const testWatched = [{ id: 500 }];
 
-]
+function Recommendations() {
+  const { setActiveCard, activeCard, generateIDs } = useContext(Context);
+  const [recommendations, setRecommendations] = useState([]);
 
-const testWatched = [
-    "Se7en",
-    "The Usual Suspects",
-    "GoodFellas"
-]
+  useAsync(async () => {
+    const recommendationList = await getRecommendations(testList, testWatched);
+    setRecommendations(recommendationList);
+  }, []);
 
-
-
-
-
-function Recommendations(){
-
-    const {setActiveCard, activeCard, generateIDs} = useContext(Context)
-
-    const recommendationList = useRecommendations(testList, testWatched)
-
-    
-
-    
-
-
-    return(
-       <div>
-       {console.log(recommendationList)}
-
-       </div>
-        
-    
-        
-    )
+  return <div>{JSON.stringify(recommendations.map(x => x.title))}</div>;
 }
 
-export default Recommendations
+export default Recommendations;
