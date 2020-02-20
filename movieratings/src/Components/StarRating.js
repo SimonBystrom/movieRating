@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useSaveToLocal} from "../useSaveToLocal"
 
 /* 
 1: Fix hover in and hover off stars to show selected amount of stars  --> Add half stars?
@@ -6,11 +7,13 @@ import React, { useState } from "react";
 3: when clicking save button saves info to some storage (watchedList)
 */
 
-function StarRatings(movieData) {
+function StarRatings({movieData}) {
   const [ratingOne, setRatingOne] = useState();
   const [ratingTwo, setRatingTwo] = useState();
   const [clickedOne, setClickedOne] = useState(false);
   const [clickedTwo, setClickedTwo] = useState(false);
+
+  const [ratedMovies, setRatedMovies] = useSaveToLocal(movieData.id)
 
   // Generates the unfilled Star
   let star = (user, rating) => {
@@ -42,12 +45,16 @@ function StarRatings(movieData) {
     return <i className="ri-star-line"></i>;
   };
 
-  // onClick function for the saved ratings
-  function saveRating(data) {
+
+
+  // onClick function -> runs the localStorage save function ()
+  function saveRating(movieData, ratingOne, ratingTwo) {
     //information gets saved to server
 
-    console.log(ratingOne, ratingTwo);
-    console.log(data.movieData);
+   
+    let data = {movieData, rating: (ratingOne + ratingTwo) / 2}
+    setRatedMovies(data)
+    
   }
 
   // PointerEnter function for the star -> sets Rating for the user -> fills in star
@@ -191,7 +198,7 @@ function StarRatings(movieData) {
             : starRender("user2", ratingTwo)}
         </div>
       </div>
-      <button onClick={() => saveRating(movieData)}>Save</button>
+      <button onClick={() => saveRating(movieData, ratingOne, ratingTwo)}>Save</button>
     </div>
   );
 }

@@ -6,34 +6,37 @@ import { getRecommendations } from "../getRecommendations";
 import BackArrow from "./BackArrow"
 
 /* 
-  Recommendations needs to get information to feed into the getRecommendation call in the useAsync function
+  Move the getLocalStorage into a hook -> use the data from the hook instead
 */
 
-//test list of highly rated titles
-const testList = [
-  {
-    title: "Moana",
-    id: 277834,
-    genre_id: [80, 9648, 53],
-    rating: 9.4
-  },
 
-  {
-    title: "The Usual Suspects",
-    id: 629,
-    genre_id: [18, 80, 53],
-    rating: 9.2
-  },
+// "fetches" localStorage items and sorts them into an array based on userRating
+function getLocalStorage(){
+  var archive = [],
+          keys = Object.keys(localStorage),
+          i = 0, key;
 
-  {
-    title: "Frozen",
-    id: 109445,
-    genre_id: [18, 80],
-    rating: 9.0
+      for (; key = keys[i]; i++) {
+          archive.push(JSON.parse(localStorage.getItem(key)))
+          
   }
-];
+  
+  archive.sort((a, b) => {
+    if (a.rating !== b.rating) return b.rating - a.rating;
+  })
 
-const testWatched = [{ id: 500 }];
+  console.log(archive)
+  return archive
+}
+
+let ratedTitles = getLocalStorage()
+let watchedTitles = getLocalStorage().map(item => 
+  {
+  
+  return item.movieData.id
+})
+
+
 
 function Recommendations() {
   const { setActiveCard, activeCard, generateGenreIDs } = useContext(Context);
@@ -41,7 +44,7 @@ function Recommendations() {
 
 // won't do anything until we get the recommendations Array from getRecommendations
   useAsync(async () => {
-    const recommendationList = await getRecommendations(testList, testWatched);
+    const recommendationList = await getRecommendations(ratedTitles, watchedTitles);
     setRecommendations(recommendationList);
   }, []);
 
@@ -81,6 +84,8 @@ function Recommendations() {
       ></img>
     </div>
   ))
+
+  console.log(recommendations)
   return (
     <div className="MovieCardFlex">
     

@@ -10,6 +10,8 @@ import { Context } from "./Context";
   NEXT STEPS
   
   1: Add Footer with The Movie DB logo (legal)
+  2: Add onHover (mouse enter) functions for the movieCards displaying average_rating / if watched or not (for search data) / 
+   and, maybe, and add to watchlist button (and a watchlist) 
   3: Add Database saving functionality (watchedList)
   3.5: Create a top 3 of the titles in the watchedList according to userSubmitted score / average_rating 
   (sort function similar to the one in getRecommendations)
