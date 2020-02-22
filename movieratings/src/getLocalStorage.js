@@ -1,3 +1,5 @@
+// "fetches" localStorage items and sorts them into an array based on userRating
+
 export function getLocalStorage(){
     var archive = [],
             keys = Object.keys(localStorage),
@@ -11,7 +13,7 @@ export function getLocalStorage(){
             
     }
 
-    archive.filter(item => item != null)
+    
     archive.sort((a, b) => {
         if (a.rating !== b.rating) return b.rating - a.rating;
       })
@@ -22,4 +24,4 @@ export function getLocalStorage(){
     return archive
   }
 
-  // .filter(item => item !== null)
+ 

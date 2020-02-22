@@ -2,6 +2,10 @@ import React, {useState} from "react"
 import { getLocalStorage } from "../getLocalStorage"
 
 
+/*
+1: add styling (includes hover feature)
+*/
+
 export default function History(){
     const [watchedTitles, setWatchedTitles] = useState(getLocalStorage())
 

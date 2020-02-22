@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import {useSaveToLocal} from "../useSaveToLocal"
 
 /* 
-1: Fix hover in and hover off stars to show selected amount of stars  --> Add half stars?
+1: Add half stars?
 2: Clean up code?? 
-3: when clicking save button saves info to some storage (watchedList)
 */
 
 function StarRatings({movieData}) {

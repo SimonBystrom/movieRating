@@ -7,11 +7,12 @@ import { getLocalStorage } from "../getLocalStorage"
 import BackArrow from "./BackArrow"
 
 /* 
-  Move the getLocalStorage into a hook -> use the data from the hook instead
+  1: Styling (includes hover feature)
+  2: Stress test actual recommendations (see if I need to tweak the recommendations 'algorhytm')
 */
 
 
-// "fetches" localStorage items and sorts them into an array based on userRating
+
 
 
 

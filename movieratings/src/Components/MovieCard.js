@@ -4,9 +4,7 @@ import BackArrow from "./BackArrow";
 import StarRating from "./StarRating";
 
 /*
-2: properly render the genres (using <span> tags)
-2.1: get the genre key array from a context call
-3: add fail state (if API fails to generate any results)
+1: Add Styling (includes hover features)
 */
 
 function MovieCard(props) {
