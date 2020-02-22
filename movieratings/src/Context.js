@@ -62,6 +62,7 @@ function ContextProvider({ children }) {
   function clearSearch() {
     setSearchTarget("");
     setSearchInput("");
+    setActiveCard(null)
   }
 
   function returnPreviousPage() {

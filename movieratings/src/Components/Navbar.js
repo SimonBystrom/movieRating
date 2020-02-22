@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import { Context } from "../Context";
 
 function Navbar() {
-  const { clearSearch } = useContext(Context);
+  const { clearSearch} = useContext(Context);
   return (
     <div className="Navbar">
       <Link to="/" onClick={clearSearch}>
@@ -18,16 +18,20 @@ function Navbar() {
         ></img>
       </Link>
 
-      <Link to="/search">
+      <Link to="/search" >
         <SearchBar className="search-bar" />
       </Link>
 
-      <Link to="/recommendations">
-        <i className="ri-star-line"></i>
+      <Link to="/recommendations" onClick={clearSearch}>
+        
+          <ul style={{listStyleType: 'none'}}>Recommendations</ul>
+        
       </Link>
 
-      <Link to="/history">
-        <i className="ri-book-3-line"></i>
+      <Link to="/history" onClick={clearSearch}>
+       
+          <ul style={{listStyleType: 'none'}}>History</ul>
+       
       </Link>
     </div>
   );

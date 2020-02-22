@@ -3,6 +3,7 @@ import { useAsync } from "react-use";
 import { Context } from "../Context";
 
 import { getRecommendations } from "../getRecommendations";
+import { getLocalStorage } from "../getLocalStorage"
 import BackArrow from "./BackArrow"
 
 /* 
@@ -11,23 +12,16 @@ import BackArrow from "./BackArrow"
 
 
 // "fetches" localStorage items and sorts them into an array based on userRating
-function getLocalStorage(){
-  var archive = [],
-          keys = Object.keys(localStorage),
-          i = 0, key;
 
-      for (; key = keys[i]; i++) {
-          archive.push(JSON.parse(localStorage.getItem(key)))
-          
-  }
+
+
+
+
+
+function Recommendations() {
+  const { setActiveCard, activeCard, generateGenreIDs } = useContext(Context);
+  const [recommendations, setRecommendations] = useState([]);
   
-  archive.sort((a, b) => {
-    if (a.rating !== b.rating) return b.rating - a.rating;
-  })
-
-  console.log(archive)
-  return archive
-}
 
 let ratedTitles = getLocalStorage()
 let watchedTitles = getLocalStorage().map(item => 
@@ -35,12 +29,6 @@ let watchedTitles = getLocalStorage().map(item =>
   
   return item.movieData.id
 })
-
-
-
-function Recommendations() {
-  const { setActiveCard, activeCard, generateGenreIDs } = useContext(Context);
-  const [recommendations, setRecommendations] = useState([]);
 
 // won't do anything until we get the recommendations Array from getRecommendations
   useAsync(async () => {

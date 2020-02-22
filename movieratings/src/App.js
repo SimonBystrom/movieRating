@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import MovieCard from "./Components/MovieCard";
 import Recommendations from "./Components/Recommendations";
+import History from './Components/History'
 import { Context } from "./Context";
 
 /* 
@@ -42,7 +43,7 @@ function App() {
           <Recommendations />
         </Route>
         <Route path="/history">
-          <h3>history</h3>
+          <History />
         </Route>
       </Switch>
     </div>

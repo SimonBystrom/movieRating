@@ -27,7 +27,7 @@ function MovieCard(props) {
       .then(res => res.json())
       .then(data => {
         //Creates the initial search items
-        setFoundSearchItems(
+        if(data.results.length > 0){setFoundSearchItems(
           data.results.map(item => (
             <div
               key={item.id}
@@ -62,7 +62,10 @@ function MovieCard(props) {
               ></img>
             </div>
           ))
-        );
+        );} else {
+          setFoundSearchItems(<h3>No titles matching search term</h3>)
+        }
+        
       })
       .catch(err => {
         console.log(err);
