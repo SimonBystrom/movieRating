@@ -11,6 +11,7 @@ function ContextProvider({ children }) {
   const [searchTarget, setSearchTarget] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [activeCard, setActiveCard] = useState();
+  const [hovered, setHovered] = useState(false)
 
   // pulls genre list array
   useEffect(() => {
@@ -81,7 +82,9 @@ function ContextProvider({ children }) {
         clearSearch,
         generateGenreIDs,
         genreList,
-        returnPreviousPage
+        returnPreviousPage,
+        hovered,
+        setHovered
       }}
     >
       {children}

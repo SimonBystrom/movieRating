@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import MovieCard from "./Components/MovieCard";
 import Recommendations from "./Components/Recommendations";
 import History from './Components/History'
+import MovieRender from "./Components/MovieRender"
 import { Context } from "./Context";
 
 /* 
@@ -31,7 +31,7 @@ function App() {
           <div>
             {/*conditional render of the movie card if search term active*/}
             {searchTarget.length > 0 ? (
-              <MovieCard movieID=""></MovieCard>
+              <MovieRender></MovieRender>
             ) : null}
           </div>
         </Route>
