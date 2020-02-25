@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Components/Navbar";
-import Recommendations from "./Components/Recommendations";
-import History from './Components/History'
-import MovieRender from "./Components/MovieRender"
+import Navbar from "./Pages/Navbar";
+import Recommendations from "./Pages/Recommendations";
+import History from './Pages/History'
+import MovieRender from "./Pages/MovieRender"
 import { Context } from "./Context";
 
 /* 

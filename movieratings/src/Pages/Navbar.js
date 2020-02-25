@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchBar from "../Components/SearchBar";
 import { Context } from "../Context";
 
 function Navbar() {

@@ -6,7 +6,7 @@ export default function HoverUserRating(id){
     if(storageInfo !== null ) {
         return storageInfo.rating
     } else {
-        return "-"
+        return ""
     }
     
 }

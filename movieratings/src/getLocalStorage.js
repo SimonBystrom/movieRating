@@ -9,19 +9,19 @@ export function getLocalStorage(){
             
                 archive.push(JSON.parse(localStorage.getItem(key)))
             
-            
-            
     }
-
+    let newArchive = archive.filter(item =>  item.movieData)
     
-    archive.sort((a, b) => {
+    newArchive.sort((a, b) => {
         if (a.rating !== b.rating) return b.rating - a.rating;
       })
     
     
   
-    console.log(archive)
-    return archive
+    
+    
+    console.log(newArchive)
+    return newArchive
   }
 
  

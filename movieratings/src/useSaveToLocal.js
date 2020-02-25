@@ -7,12 +7,12 @@ export function useSaveToLocal(movieID){
     const [ratedMovies, setRatedMovies] = useState(checkForTitle(movieID))
 
     // Checks if title is already present in storage (so we don't overwrite previous rating by clicking on a title)
-    function checkForTitle(id){
-        let check = localStorage.getItem(id) 
+    function checkForTitle(movieID){
+        let check = localStorage.getItem(movieID) 
         if(check !== null){
             return JSON.parse(check)
         } else {
-            return {movieData: {id: 0}}
+            return {movieData: null}
         }
     }
 

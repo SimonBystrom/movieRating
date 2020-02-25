@@ -13,7 +13,7 @@ import HoverUserRating from "../Hover Elements/HoverUserRating"
 
 //Movie Card Component
 
-export default function Movie(props){
+export default function MovieHistory(props){
     const [hovered, ref] = useHover()
     const {setActiveCard, generateGenreIDs} = useContext(Context)
 
@@ -36,7 +36,7 @@ export default function Movie(props){
                     <div>
                       <img
                         alt=""
-                        src={props.img}
+                        src={props.poster_path}
                       ></img>
                       <h1>{props.title}</h1>
                       <small>Release Date: {props.releaseDate}</small>
@@ -53,9 +53,9 @@ export default function Movie(props){
         >
             <img
                 style={{display: "block"}}
-                src={props.img}
-                width="200"
-                heigh="350">
+                src={props.poster_path}
+                width="185"
+                heigh="250">
                 </img>
             {userRating()}
         </div>

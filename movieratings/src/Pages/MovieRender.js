@@ -1,5 +1,5 @@
 import React from "react"
-import Movie from "./Movie"
+import MovieSearched from "../Components/MovieSearched"
 import { useState, useContext } from "react";
 import { useAsync } from "react-use";
 import { Context } from "../Context";
@@ -31,16 +31,16 @@ function MovieRender(){
 
 
     let results =  foundSearchItems.map(item => 
-        <Movie 
+        <MovieSearched 
                 key={item.id} 
-                img={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} 
+                poster_path={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} 
                 title={item.title} 
                 releaseDate={item.release_date}
                 voteAverage={item.vote_average}
                 overview={item.overview}
                 genreIds={item.genre_ids}
                 id={item.id}
-                ></Movie>)
+                ></MovieSearched>)
 
     return(
         <div className="MovieCardFlex">
