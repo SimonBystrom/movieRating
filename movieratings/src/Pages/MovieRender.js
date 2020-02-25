@@ -35,8 +35,8 @@ function MovieRender(){
                 key={item.id} 
                 poster_path={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} 
                 title={item.title} 
-                releaseDate={item.release_date}
-                voteAverage={item.vote_average}
+                release_date={item.release_date}
+                vote_average={item.vote_average}
                 overview={item.overview}
                 genreIds={item.genre_ids}
                 id={item.id}

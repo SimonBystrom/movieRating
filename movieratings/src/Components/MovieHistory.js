@@ -7,8 +7,8 @@ import HoverUserRating from "../Hover Elements/HoverUserRating"
 
 
 /*
-    style the userRating function 
-    add more hover info if necesary 
+    STYLE HISTORY MOVIE ELEMENT HOWEVER YOU WANT! 
+    ADD EXTRA HOVER FEATURES? 
 */
 
 //Movie Card Component
@@ -42,7 +42,7 @@ export default function MovieHistory(props){
                       <small>Release Date: {props.releaseDate}</small>
                       <h4>Rating: {props.voteAverage}</h4>
                       <p>{props.overview}</p>
-                      <div>{generateGenreIDs(props.genreIds)}</div>
+                      
                       <StarRating movieData={props} />
                     </div>
                   </div>

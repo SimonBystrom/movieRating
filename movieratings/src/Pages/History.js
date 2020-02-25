@@ -42,7 +42,7 @@ export default function History(){
 
     return(
         <div className="MovieCardFlex">
-            {results}
+            {activeCard ? activeCard : results}
         </div>
     )
 }

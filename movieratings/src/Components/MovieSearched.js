@@ -7,8 +7,8 @@ import HoverUserRating from "../Hover Elements/HoverUserRating"
 
 
 /*
-    style the userRating function 
-    add more hover info if necesary 
+    STYLE MOVIE SEARCH RESULTS HOWEVER YOU WANT 
+    ADD EXTRA HOVER FUCNTIONS?  
 */
 
 //Movie Card Component

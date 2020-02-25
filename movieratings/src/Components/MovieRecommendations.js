@@ -7,8 +7,8 @@ import HoverUserRating from "../Hover Elements/HoverUserRating"
 
 
 /*
-    style the userRating function 
-    add more hover info if necesary 
+    STYLE RECOMMENDATIONS TAG HOWEVER YOU WANT
+    DELETE USERRATING HOVER (no purpose) ADD NETFLIX HOWER 
 */
 
 //Movie Card Component
