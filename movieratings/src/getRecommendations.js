@@ -1,6 +1,10 @@
 import PropTypes from "prop-types"
 
 
+/*
+ if more than 10 titles in watched, give more recommendations 
+*/
+
 export async function getRecommendations(likedTitles, watchedTitles) {
     console.log(likedTitles)
     const IDs = likedTitles.map(item => {
@@ -9,7 +13,7 @@ export async function getRecommendations(likedTitles, watchedTitles) {
     });
     
     
-  
+ 
   // All await lists returns the resolved .json() promise and saves the results to the list (one by one)
     const list1 = await fetch(`https://api.themoviedb.org/3/movie/
           ${IDs[0]}/recommendations?api_key=ab85baadb27ea7d2eade887860bfa03a&language=en-US&page=1`).then(

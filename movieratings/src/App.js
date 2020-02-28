@@ -10,7 +10,7 @@ import { Context } from "./Context";
 /* 
   NEXT STEPS
   
-  1: Add Footer with The Movie DB logo (legal)
+  1: Add Footer with The Movie DB logo (legal) and (attribute flags see below)
   2: Add onHover (mouse enter) functions for the movieCards displaying average_rating / if watched or not (for search data) / 
    and, maybe, and add to watchlist button (and a watchlist) 
   3: General styling
@@ -47,3 +47,8 @@ function App() {
 }
 
 export default App;
+
+
+/*
+<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a></div>
+*/

@@ -11,6 +11,7 @@ function ContextProvider({ children }) {
   const [searchTarget, setSearchTarget] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [activeCard, setActiveCard] = useState();
+  const [searchLanguage, setSearchLanguage] = useState("en-US")
   const [hovered, setHovered] = useState(false)
 
   // pulls genre list array
@@ -70,6 +71,10 @@ function ContextProvider({ children }) {
     setActiveCard(null);
   }
 
+  function setLanguage(language){
+    setSearchLanguage(language)
+  }
+
   return (
     <Context.Provider
       value={{
@@ -84,7 +89,9 @@ function ContextProvider({ children }) {
         genreList,
         returnPreviousPage,
         hovered,
-        setHovered
+        setHovered,
+        searchLanguage,
+        setLanguage
       }}
     >
       {children}

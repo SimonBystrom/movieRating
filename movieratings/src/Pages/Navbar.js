@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import SearchBar from "../Components/SearchBar";
 import { Context } from "../Context";
 
+/* 
+  Add flags for the countries
+  add so the searbar displays the selected country (easier to know what we are searching)
+*/
+
 function Navbar() {
-  const { clearSearch} = useContext(Context);
+  const { clearSearch, setLanguage} = useContext(Context);
+
   return (
     <div className="Navbar">
       <Link to="/" onClick={clearSearch}>
@@ -32,6 +38,14 @@ function Navbar() {
        
           <ul style={{listStyleType: 'none'}}>History</ul>
        
+      </Link>
+      <Link to="/search" onClick={() => setLanguage("en-US")}>
+        <ul style={{listStyleType: 'none'}}>En</ul>
+      </Link>
+      <Link to="/search" onClick={() => setLanguage("jp")}>
+        <ul style={{listStyleType: 'none'}}>Jp</ul>
+              
+              
       </Link>
     </div>
   );

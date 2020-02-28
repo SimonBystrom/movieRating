@@ -4,20 +4,25 @@ import StarRating from "./StarRating"
 import BackArrow from "./BackArrow"
 import {Context} from "../Context"
 import HoverUserRating from "../Hover Elements/HoverUserRating"
-
+import styled from "styled-components"
 
 /*
     STYLE MOVIE SEARCH RESULTS HOWEVER YOU WANT 
     ADD EXTRA HOVER FUCNTIONS?  
 */
 
+const StyledImg = styled.img`
+width: 200;
+height: 350;
+display: block;
+`;
 //Movie Card Component
 
 export default function MovieSearched(props){
     const [hovered, ref] = useHover()
     const {setActiveCard, generateGenreIDs} = useContext(Context)
 
-    
+   
 
     function userRating(){
         if(hovered){
@@ -39,8 +44,8 @@ export default function MovieSearched(props){
                         src={props.poster_path}
                       ></img>
                       <h1>{props.title}</h1>
-                      <small>Release Date: {props.releaseDate}</small>
-                      <h4>Rating: {props.voteAverage}</h4>
+                      <small>Release Date: {props.release_date}</small>
+                      <h4>Rating: {props.vote_average}</h4>
                       <p>{props.overview}</p>
                       <div>{generateGenreIDs(props.genreIds)}</div>
                       <StarRating movieData={props} />
@@ -51,12 +56,21 @@ export default function MovieSearched(props){
                 window.scrollTo(0, 0);
               }}
         >
-            <img
-                style={{display: "block"}}
-                src={props.poster_path}
-                width="200"
-                heigh="350">
-                </img>
+            <StyledImg 
+              src={props.poster_path}
+              style={{display: "block"}}
+              width="200"
+              heigh="350"
+              >
+
+            </StyledImg>
+            {/* <img 
+              style={{display: "block"}}
+              src={props.poster_path}
+              width="200"
+              heigh="350">
+                
+                </img> */}
             {userRating()}
         </div>
         

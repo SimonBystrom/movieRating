@@ -14,14 +14,15 @@ import {getSearchResults} from "../getSearchResults"
 
 function MovieRender(){
     const [foundSearchItems, setFoundSearchItems] = useState([])
-    const {searchTarget, activeCard} = useContext(Context)
+    const {searchTarget, activeCard, searchLanguage} = useContext(Context)
 
 
 
 
     let title = searchTarget
+    let language = searchLanguage
     useAsync(async () => {
-        const results =  await getSearchResults(title)
+        const results =  await getSearchResults(title, language)
         
             setFoundSearchItems(results.results)
     
