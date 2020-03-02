@@ -4,7 +4,7 @@ import "./App.css";
 import Navbar from "./Pages/Navbar";
 import Recommendations from "./Pages/Recommendations";
 import History from './Pages/History'
-import MovieRender from "./Pages/MovieRender"
+import MovieSearch from "./Pages/MovieSearch"
 import { Context } from "./Context";
 
 /* 
@@ -31,7 +31,7 @@ function App() {
           <div>
             {/*conditional render of the movie card if search term active*/}
             {searchTarget.length > 0 ? (
-              <MovieRender></MovieRender>
+              <MovieSearch></MovieSearch>
             ) : null}
           </div>
         </Route>

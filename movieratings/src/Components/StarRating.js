@@ -14,6 +14,13 @@ function StarRatings({movieData}) {
 
   const [ratedMovies, setRatedMovies] = useSaveToLocal(movieData.id)
 
+  const storage = () => {
+      if(JSON.parse(localStorage.getItem(movieData.id))){
+        return JSON.parse(localStorage.getItem(movieData.id)).rating
+      } else if (!JSON.parse(localStorage.getItem(movieData.id)))
+        return ""
+    }
+
   // Generates the unfilled Star
   let star = (user, rating) => {
     return (
@@ -49,8 +56,6 @@ function StarRatings({movieData}) {
   // onClick function -> runs the localStorage save function ()
   function saveRating(movieData, ratingOne, ratingTwo) {
     //information gets saved to server
-
-   
     let data = {movieData, rating: (ratingOne + ratingTwo) / 2}
     setRatedMovies(data)
     
@@ -185,19 +190,34 @@ function StarRatings({movieData}) {
   return (
     <div>
       <div className="stars-container">
-        <div onClick={() => setClickedOne(true)}>
+        <div onClick={() => {
+          if(!clickedOne){
+            setClickedOne(true)}
+          else if(clickedOne){
+            setClickedOne(false)
+            setRatingOne(0)
+          }
+            }}>
           {clickedOne
             ? goldStarRender("user1", ratingOne)
             : starRender("user1", ratingOne)}
         </div>
 
-        <div onClick={() => setClickedTwo(true)}>
+        <div onClick={() => {
+          if(!clickedTwo){
+            setClickedTwo(true)}
+          else if(clickedTwo){
+            setClickedTwo(false)
+            setRatingTwo(0)
+          }
+            }}>
           {clickedTwo
             ? goldStarRender("user2", ratingTwo)
             : starRender("user2", ratingTwo)}
         </div>
       </div>
       <button onClick={() => saveRating(movieData, ratingOne, ratingTwo)}>Save</button>
+      <h4>{storage()}</h4>
     </div>
   );
 }

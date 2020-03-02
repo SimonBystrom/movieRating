@@ -5,6 +5,8 @@ import { useAsync } from "react-use";
 import { Context } from "../Context";
 import {getSearchResults} from "../getSearchResults"
 
+import MovieWrapper from "../StyledComponents/MovieWrapper"
+
 
 // Renders the results from search by mapping over the results and passing the data as props into the Movie component
 
@@ -12,7 +14,7 @@ import {getSearchResults} from "../getSearchResults"
     Make it so if there's no results from search show error msg
 */
 
-function MovieRender(){
+function MovieSearch(){
     const [foundSearchItems, setFoundSearchItems] = useState([])
     const {searchTarget, activeCard, searchLanguage} = useContext(Context)
 
@@ -31,23 +33,32 @@ function MovieRender(){
 
 
 
-    let results =  foundSearchItems.map(item => 
-        <MovieSearched 
-                key={item.id} 
-                poster_path={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} 
-                title={item.title} 
-                release_date={item.release_date}
-                vote_average={item.vote_average}
-                overview={item.overview}
-                genreIds={item.genre_ids}
-                id={item.id}
-                ></MovieSearched>)
+    let results =  foundSearchItems.map(item => {
+        if(item.poster_path){
+            return (
+            <MovieSearched 
+            key={item.id} 
+            poster_path={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} 
+            title={item.title} 
+            release_date={item.release_date}
+            vote_average={item.vote_average}
+            overview={item.overview}
+            genreIds={item.genre_ids}
+            id={item.id}
+            ></MovieSearched>
+            )
+        }}
+    )
+       
+    
+
+        
 
     return(
-        <div className="MovieCardFlex">
-            {activeCard ? activeCard : results}
-        </div>
+
+        <MovieWrapper search>{activeCard ? activeCard : results}</MovieWrapper>
+       
     )
 }
 
-export default MovieRender
+export default MovieSearch

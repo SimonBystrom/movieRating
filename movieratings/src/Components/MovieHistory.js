@@ -1,64 +1,83 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import useHover from "../Hooks/useHover"
 import StarRating from "./StarRating"
 import BackArrow from "./BackArrow"
 import {Context} from "../Context"
 import HoverUserRating from "../Hover Elements/HoverUserRating"
 
+import MovieImg from "../StyledComponents/MovieImg"
+import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
+import SetActiveWrapper from "../StyledComponents/SetActiveWrapper"
+import SetActiveImg from "../StyledComponents/SetActiveImg"
+import ActiveMovieInfoWrapper from "../StyledComponents/ActiveMovieInfoWrapper"
+import ActiveTitle from "../StyledComponents/ActiveTitle"
+import ActiveRelease from "../StyledComponents/ActiveRelease"
+import ActiveRating from "../StyledComponents/ActiveRating"
+import ActiveDescription from "../StyledComponents/ActiveDescription"
+
 
 /*
-    STYLE HISTORY MOVIE ELEMENT HOWEVER YOU WANT! 
-    ADD EXTRA HOVER FEATURES? 
+    Fix the click to only add info if info exists (otherwise renter nothing...)
 */
 
 //Movie Card Component
 
 export default function MovieHistory(props){
     const [hovered, ref] = useHover()
-    const {setActiveCard, generateGenreIDs} = useContext(Context)
-
+    const {setActiveCard} = useContext(Context)
+    
+   
     
 
     function userRating(){
         if(hovered){
-        return <h3 style={{position: "absolute", top: "20px", right: "20px"}}>{HoverUserRating(props.id)}</h3>
+        return HoverUserRating(props.id)
         }
     }
+
+   
     
     return (
-        <div 
-            ref={ref}
-            style={{position: "relative"}}
-            onClick={() => {
-                setActiveCard(
-                  <div>
-                    <BackArrow />
-                    <div>
-                      <img
-                        alt=""
-                        src={props.poster_path}
-                      ></img>
-                      <h1>{props.title}</h1>
-                      <small>Release Date: {props.releaseDate}</small>
-                      <h4>Rating: {props.voteAverage}</h4>
-                      <p>{props.overview}</p>
-                      
-                      <StarRating movieData={props} />
-                    </div>
-                  </div>
-                )
-                //set window view back to normal non-scrolled
-                window.scrollTo(0, 0);
-              }}
+        <MovieElementWrapper 
+          history
+          ref={ref}
+          onClick={() => {
+            setActiveCard(
+              <SetActiveWrapper>
+                <SetActiveImg src={props.poster_path}>
+                </SetActiveImg>
+               
+                <BackArrow />
+                <ActiveMovieInfoWrapper>
+                  <ActiveTitle>{props.title}</ActiveTitle>
+                  <ActiveRelease>{props.releaseDate.substring(0,4)}</ActiveRelease>
+                  <ActiveRating>{props.voteAverage} / 10</ActiveRating>
+                  <ActiveDescription>{props.overview}</ActiveDescription>
+              
+                  <StarRating movieData={props} />
+          
+                </ActiveMovieInfoWrapper>
+                  
+             
+              </SetActiveWrapper>
+              
+            )
+            //set window view back to normal non-scrolled
+            window.scrollTo(0, 140);
+          }}
         >
-            <img
-                style={{display: "block"}}
-                src={props.poster_path}
-                width="185"
-                heigh="250">
-                </img>
+          <MovieImg history src={props.poster_path}>
+
+          </MovieImg>
+            
             {userRating()}
-        </div>
+
+        </MovieElementWrapper>
+          
+            
+           
+          
+       
         
     )
 }

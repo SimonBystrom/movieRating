@@ -9,7 +9,10 @@ function BackArrow() {
   return (
     <i
       className="ri-arrow-left-s-line"
-      onClick={() => returnPreviousPage()}
+      onClick={() => {
+        returnPreviousPage()
+        window.scrollTo(0, 0)
+        }}
     ></i>
   );
 }

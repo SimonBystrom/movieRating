@@ -3,6 +3,8 @@ import { getLocalStorage } from "../getLocalStorage"
 import { Context } from "../Context";
 import MovieHistory from "../Components/MovieHistory"
 
+import MovieWrapper from "../StyledComponents/MovieWrapper"
+
 
 /*
 1: add styling (includes hover feature)
@@ -14,19 +16,6 @@ export default function History(){
 
     console.log(watchedTitles)
 
-    let render = watchedTitles.map(item => 
-        <div
-         key={item.movieData.id}
-        >
-            <img 
-                alt=""
-                src={item.movieData.poster_path}
-                width="185"
-                height="250"
-                
-            ></img>
-            
-        </div>)
 
     let results = watchedTitles.map(item => 
       <MovieHistory
@@ -41,25 +30,12 @@ export default function History(){
               ></MovieHistory>)
 
     return(
-        <div className="MovieCardFlex">
+
+        <MovieWrapper>
             {activeCard ? activeCard : results}
-        </div>
+        
+        </MovieWrapper>
+      
     )
 }
 
-
-/*
-
-item => 
-        <MovieHistory
-                key={item.MovieData.id} 
-                img={`https://image.tmdb.org/t/p/w500/${item.movieData.poster_path}`} 
-                title={item.movieData.title} 
-                releaseDate={item.movieData.release_date}
-                voteAverage={item.movieData.vote_average}
-                overview={item.movieData.overview}
-                genreIds={item.movieData.genre_ids}
-                id={item.movieData.id}
-                ></MovieHistory>)
-
-                */

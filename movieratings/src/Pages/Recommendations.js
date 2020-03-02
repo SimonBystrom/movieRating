@@ -7,6 +7,8 @@ import { getLocalStorage } from "../getLocalStorage"
 import BackArrow from "../Components/BackArrow"
 import MovieRecommendations from "../Components/MovieRecommendations"
 
+import MovieWrapper from "../StyledComponents/MovieWrapper"
+
 /* 
   1: Styling (includes hover feature)
   2: Stress test actual recommendations (see if I need to tweak the recommendations 'algorhytm')
@@ -33,42 +35,6 @@ let watchedTitles = getLocalStorage().map(item =>
   }, []);
 
 
-// Creates the JSX from the items we got from getRecommendations
-  // let recommendationsRender = recommendations.map(item => (
-  //   <div
-  //     key={item.id}
-  //     // onClick Creates the active card
-  //     onClick={() => {
-  //       setActiveCard(
-  //         <div>
-  //           <BackArrow />
-  //           <div>
-  //             <img
-  //               alt=""
-  //               src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-  //             ></img>
-  //             <h1>{item.title}</h1>
-  //             <small>Release Date: {item.release_date}</small>
-  //             <h4>Rating: {item.vote_average}</h4>
-  //             <p>{item.overview}</p>
-  //             <div>{generateGenreIDs(item.genre_ids)}</div>
-              
-  //           </div>
-  //         </div>
-  //       );
-  //       //set window view back to normal non-scrolled
-  //       window.scrollTo(0, 0);
-  //     }}
-  //   >
-  //     <img
-  //       alt=""
-  //       src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-  //       width="270"
-  //       heigh="450"
-  //     ></img>
-  //   </div>
-  // ))
-
   let results = recommendations.map(item => 
     <MovieRecommendations
       key={item.id} 
@@ -83,12 +49,12 @@ let watchedTitles = getLocalStorage().map(item =>
 
   console.log(recommendations)
   return (
-    <div className="MovieCardFlex">
-    
+
+    <MovieWrapper>
+
       {activeCard ? activeCard : results}
-    
-    
-    </div>
+    </MovieWrapper>
+   
   )
 }
 
