@@ -2,52 +2,62 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../Components/SearchBar";
 import { Context } from "../Context";
+import styled from 'styled-components'
+
+import NavbarStyle from "../StyledComponents/NavbarStyle"
+import Japanese from "../FlagIcons/japan.png"
+import English from "../FlagIcons/united-kingdom.png"
 
 /* 
-  Add flags for the countries
-  add so the searbar displays the selected country (easier to know what we are searching)
+  Style the StyledLink so they look good an appear correctly! 
 */
+
+
+
+const StyledLink = styled(Link)`
+  color: black;
+  font-weight: bold;
+  margin-left: 0px;
+`;
+
+
 
 function Navbar() {
   const { clearSearch, setLanguage} = useContext(Context);
 
   return (
-    <div className="Navbar">
-      <Link to="/" onClick={clearSearch}>
+    <NavbarStyle >
+      <StyledLink to="/" onClick={clearSearch}>
         <i className="ri-home-4-line"></i>
-      </Link>
+      </StyledLink>
 
-      <Link to="/" onClick={clearSearch}>
+      <StyledLink to="/" onClick={clearSearch}>
         <img
           alt=""
           src="https://fontmeme.com/permalink/200127/8f102e93957aabf7a387f12495c511d9.png"
         ></img>
-      </Link>
+      </StyledLink>
 
-      <Link to="/search" >
+      <StyledLink to="/search" >
         <SearchBar className="search-bar" />
-      </Link>
+      </StyledLink>
 
-      <Link to="/recommendations" onClick={clearSearch}>
-        
-          <ul style={{listStyleType: 'none'}}>Recommendations</ul>
-        
-      </Link>
+      <StyledLink to="/recommendations" onClick={clearSearch}>
+         Recommendations
+      </StyledLink>
 
-      <Link to="/history" onClick={clearSearch}>
-       
-          <ul style={{listStyleType: 'none'}}>History</ul>
-       
-      </Link>
-      <Link to="/search" onClick={() => setLanguage("en-US")}>
-        <ul style={{listStyleType: 'none'}}>En</ul>
-      </Link>
-      <Link to="/search" onClick={() => setLanguage("jp")}>
-        <ul style={{listStyleType: 'none'}}>Jp</ul>
+      <StyledLink to="/history" onClick={clearSearch}>
+         History
+      </StyledLink>
+      <StyledLink to="/search" onClick={() => setLanguage("en-US")}>
+        <img style={{width: "30px", height: "30px"}} src={English}></img>
+      </StyledLink>
+      <StyledLink to="/search" onClick={() => setLanguage("jp")}>
+        <img style={{width: "30px", height: "30px"}} src={Japanese}></img>
               
               
-      </Link>
-    </div>
+      </StyledLink>
+    </NavbarStyle>
   );
 }
 

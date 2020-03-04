@@ -7,8 +7,8 @@ import HoverUserRating from "../Hover Elements/HoverUserRating"
 
 import MovieImg from "../StyledComponents/MovieImg"
 import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
-import SetActiveWrapper from "../StyledComponents/SetActiveWrapper"
-import SetActiveImg from "../StyledComponents/SetActiveImg"
+import ActiveWrapper from "../StyledComponents/ActiveWrapper"
+import ActiveImg from "../StyledComponents/ActiveImg"
 import ActiveMovieInfoWrapper from "../StyledComponents/ActiveMovieInfoWrapper"
 import ActiveTitle from "../StyledComponents/ActiveTitle"
 import ActiveRelease from "../StyledComponents/ActiveRelease"
@@ -35,6 +35,28 @@ export default function MovieHistory(props){
         }
     }
 
+    const release = () => {
+      if(props.releaseDate){
+       return  <ActiveRelease>{props.releaseDate.substring(0,4)}</ActiveRelease>
+      } else {
+        return <ActiveRelease>No release info available..</ActiveRelease>
+      }
+    }
+    const rating = () => {
+      if(props.voteAverage){
+        return <ActiveRating>{props.voteAverage} / 10</ActiveRating>
+      } else {
+        return <ActiveRating>No vote average data found..</ActiveRating>
+      }
+    }
+    const description = () => {
+      if(props.overview){
+        return <ActiveDescription>{props.overview}</ActiveDescription>
+      } else {
+        return <ActiveDescription>No description data found..</ActiveDescription>
+      }
+    }
+
    
     
     return (
@@ -43,27 +65,27 @@ export default function MovieHistory(props){
           ref={ref}
           onClick={() => {
             setActiveCard(
-              <SetActiveWrapper>
-                <SetActiveImg src={props.poster_path}>
-                </SetActiveImg>
+              <ActiveWrapper>
+                <ActiveImg src={props.poster_path}>
+                </ActiveImg>
                
                 <BackArrow />
                 <ActiveMovieInfoWrapper>
                   <ActiveTitle>{props.title}</ActiveTitle>
-                  <ActiveRelease>{props.releaseDate.substring(0,4)}</ActiveRelease>
-                  <ActiveRating>{props.voteAverage} / 10</ActiveRating>
-                  <ActiveDescription>{props.overview}</ActiveDescription>
+                  {release()}
+                  {rating()}
+                  {description()}
               
                   <StarRating movieData={props} />
           
                 </ActiveMovieInfoWrapper>
                   
              
-              </SetActiveWrapper>
+              </ActiveWrapper>
               
             )
             //set window view back to normal non-scrolled
-            window.scrollTo(0, 140);
+            window.scrollTo(0, 90);
           }}
         >
           <MovieImg history src={props.poster_path}>

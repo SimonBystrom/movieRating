@@ -25,7 +25,7 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <h3>Main information of website</h3>
+          <h1 style={{marginTop: "300px"}}>Main information of website</h1>
         </Route>
         <Route path="/search/">
           <div>
@@ -50,5 +50,5 @@ export default App;
 
 
 /*
-<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 */

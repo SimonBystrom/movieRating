@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import {useSaveToLocal} from "../useSaveToLocal"
 
+import StarWrapper from "../StyledComponents/StarsWrapper"
+
+
 /* 
 1: Add half stars?
 2: Clean up code?? 
@@ -16,7 +19,9 @@ function StarRatings({movieData}) {
 
   const storage = () => {
       if(JSON.parse(localStorage.getItem(movieData.id))){
-        return JSON.parse(localStorage.getItem(movieData.id)).rating
+      return (
+          <h3 style={{paddingLeft: "10px"}}>{JSON.parse(localStorage.getItem(movieData.id)).rating}</h3> 
+        )
       } else if (!JSON.parse(localStorage.getItem(movieData.id)))
         return ""
     }
@@ -50,8 +55,6 @@ function StarRatings({movieData}) {
   let normalStar = () => {
     return <i className="ri-star-line"></i>;
   };
-
-
 
   // onClick function -> runs the localStorage save function ()
   function saveRating(movieData, ratingOne, ratingTwo) {
@@ -188,7 +191,9 @@ function StarRatings({movieData}) {
   };
 
   return (
-    <div>
+
+    <StarWrapper>
+      
       <div className="stars-container">
         <div onClick={() => {
           if(!clickedOne){
@@ -216,9 +221,18 @@ function StarRatings({movieData}) {
             : starRender("user2", ratingTwo)}
         </div>
       </div>
-      <button onClick={() => saveRating(movieData, ratingOne, ratingTwo)}>Save</button>
-      <h4>{storage()}</h4>
-    </div>
+      <i 
+        className="ri-save-line"
+        onClick={() => saveRating(movieData, ratingOne, ratingTwo)} 
+        style={{fontSize: "45px", paddingLeft: "10px"}}
+      >
+
+      </i>
+      <i className="ri-star-fill" style={{ color: "gold", fontSize: "35px"}}></i> 
+      {storage()}
+
+    </StarWrapper>
+    
   );
 }
 

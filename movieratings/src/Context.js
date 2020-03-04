@@ -1,5 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 
+import GenreSpan from "./StyledComponents/GenreSpan"
+
 /* 
 
 */
@@ -39,9 +41,9 @@ function ContextProvider({ children }) {
     }
     //creates split seperated array of the string values in genre and maps over them creating a <span> for each
     return genre.split(",").map(g => (
-      <span className="genre" key={g}>
+      <GenreSpan key={g}>
         {g}
-      </span>
+      </GenreSpan>
     ));
   }
 

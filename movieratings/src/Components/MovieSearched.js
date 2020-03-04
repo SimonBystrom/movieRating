@@ -4,10 +4,18 @@ import StarRating from "./StarRating"
 import BackArrow from "./BackArrow"
 import {Context} from "../Context"
 import HoverUserRating from "../Hover Elements/HoverUserRating"
-import styled from "styled-components"
+import HoverAverageRating from "../Hover Elements/HoverAverageRating"
 
 import MovieImg  from "../StyledComponents/MovieImg"
 import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
+import ActiveWrapper from "../StyledComponents/ActiveWrapper"
+import ActiveImg from "../StyledComponents/ActiveImg"
+import ActiveMovieInfoWrapper from "../StyledComponents/ActiveMovieInfoWrapper"
+import ActiveTitle from "../StyledComponents/ActiveTitle"
+import ActiveRelease from "../StyledComponents/ActiveRelease"
+import ActiveRating from "../StyledComponents/ActiveRating"
+import ActiveDescription from "../StyledComponents/ActiveDescription"
+import ActiveGenre from "../StyledComponents/ActiveGenre"
 
 /*
     STYLE MOVIE SEARCH RESULTS HOWEVER YOU WANT 
@@ -27,6 +35,12 @@ export default function MovieSearched(props){
         return HoverUserRating(props.id)
         }
     }
+
+    function averageRatingInfo(){
+      if(hovered){
+        return HoverAverageRating(props.vote_average)
+      }
+    }
     
     return (
 
@@ -36,24 +50,27 @@ export default function MovieSearched(props){
         style={{position: "relative"}}
         onClick={() => {
             setActiveCard(
-              <div>
+              <ActiveWrapper>
+                <ActiveImg src={props.poster_path}></ActiveImg>
+              
                 <BackArrow />
-                <div>
-                  <img
-                    alt=""
-                    src={props.poster_path}
-                  ></img>
-                  <h1>{props.title}</h1>
-                  <small>Release Date: {props.release_date}</small>
-                  <h4>Rating: {props.vote_average}</h4>
-                  <p>{props.overview}</p>
-                  <div>{generateGenreIDs(props.genreIds)}</div>
+                <ActiveMovieInfoWrapper>
+                  <ActiveTitle>{props.title}</ActiveTitle>
+                  <ActiveRelease>{props.release_date.substring(0,4)}</ActiveRelease>
+                  <ActiveRating>{props.vote_average} / 10</ActiveRating>
+                  <ActiveDescription>{props.overview}</ActiveDescription>
+                  <ActiveGenre>{generateGenreIDs(props.genreIds)}</ActiveGenre>
+              
                   <StarRating movieData={props} />
-                </div>
-              </div>
+          
+                </ActiveMovieInfoWrapper>
+                  
+            
+            </ActiveWrapper>
+              
             )
             //set window view back to normal non-scrolled
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 90);
           }}
       >
           <MovieImg
@@ -64,6 +81,7 @@ export default function MovieSearched(props){
             </MovieImg>
           
             {userRating()}
+            {averageRatingInfo()}
       </MovieElementWrapper>
        
     )
