@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export default styled.div`
 
     margin-left: 13px;
-    margin-bottom: 80px;
+    margin-bottom: 45px;
     
     display: flex;
     flex-wrap: wrap;
@@ -22,6 +22,6 @@ export default styled.div`
         transform: scale(${props => props.history ? "1.3" : props.search ? "1.3" : props.recommendation ? "1.2" : "1"});
         z-index: 10;
         transition: all 0.5s;
-        box-shadow: 0px 6px 10px 4px rgba(0,0,0,0.41);
+        box-shadow: 0px 6px 10px 4px rgba(0,0,0,0.75);
     }
 `

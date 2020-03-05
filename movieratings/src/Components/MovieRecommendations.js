@@ -8,14 +8,10 @@ import {Context} from "../Context"
 
 import MovieImg from "../StyledComponents/MovieImg"
 import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
-import ActiveWrapper from "../StyledComponents/ActiveWrapper"
-import ActiveImg from "../StyledComponents/ActiveImg"
-import ActiveMovieInfoWrapper from "../StyledComponents/ActiveMovieInfoWrapper"
-import ActiveTitle from "../StyledComponents/ActiveTitle"
-import ActiveRelease from "../StyledComponents/ActiveRelease"
-import ActiveRating from "../StyledComponents/ActiveRating"
-import ActiveDescription from "../StyledComponents/ActiveDescription"
-import ActiveGenre from "../StyledComponents/ActiveGenre"
+import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper, 
+  ActiveTitle, ActiveRelease, ActiveRating,
+  ActiveDescription, ActiveGenre} from "../StyledComponents/ActiveComp"
+
 
 
 /*
@@ -60,7 +56,7 @@ export default function MovieSearched(props){
            
           )
           //set window view back to normal non-scrolled
-          window.scrollTo(0, 90);
+          window.scrollTo(0, 40);
         }}
       >
          

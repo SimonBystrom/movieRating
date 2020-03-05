@@ -7,13 +7,10 @@ import HoverUserRating from "../Hover Elements/HoverUserRating"
 
 import MovieImg from "../StyledComponents/MovieImg"
 import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
-import ActiveWrapper from "../StyledComponents/ActiveWrapper"
-import ActiveImg from "../StyledComponents/ActiveImg"
-import ActiveMovieInfoWrapper from "../StyledComponents/ActiveMovieInfoWrapper"
-import ActiveTitle from "../StyledComponents/ActiveTitle"
-import ActiveRelease from "../StyledComponents/ActiveRelease"
-import ActiveRating from "../StyledComponents/ActiveRating"
-import ActiveDescription from "../StyledComponents/ActiveDescription"
+import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper, 
+        ActiveTitle, ActiveRelease, ActiveRating,
+        ActiveDescription} from "../StyledComponents/ActiveComp"
+
 
 
 /*
@@ -85,7 +82,7 @@ export default function MovieHistory(props){
               
             )
             //set window view back to normal non-scrolled
-            window.scrollTo(0, 90);
+            window.scrollTo(0, 40);
           }}
         >
           <MovieImg history src={props.poster_path}>

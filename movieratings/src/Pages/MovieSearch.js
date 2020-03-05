@@ -55,9 +55,9 @@ function MovieSearch(){
         
 
     return(
-
-        <MovieWrapper search>{activeCard ? activeCard : results}</MovieWrapper>
-       
+    
+          <MovieWrapper search>{activeCard ? activeCard : results }</MovieWrapper>
+            
     )
 }
 

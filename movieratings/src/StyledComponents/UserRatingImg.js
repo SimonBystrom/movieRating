@@ -19,7 +19,7 @@ export default styled.i`
     top: 10px;
     right: 10px;
    font-size: 25px;
-    color: gold;
+    color: #EDF060;
     animation: ${fade} 0.55s;
     animation-fill-mode: forwards;
 `

@@ -1,10 +1,12 @@
 body {
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #171219;
 }
 
 code {
@@ -45,15 +47,7 @@ code {
   padding: 20px
 }
 
-input{
-  padding-left: 15px;
-  margin-left: 230px;
-  border-radius: 50px;
-  height: 30px;
-  width: 200px;
-  border: 1px solid lightgray;
-  outline: none;
-}
+
 
 a{
   text-decoration: none;

@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../Components/SearchBar";
 import { Context } from "../Context";
+import { createGlobalStyle } from "styled-components";
+
 import styled from 'styled-components'
 
 import NavbarStyle from "../StyledComponents/NavbarStyle"
 import Japanese from "../FlagIcons/japan.png"
 import English from "../FlagIcons/united-kingdom.png"
+
 
 /* 
   Style the StyledLink so they look good an appear correctly! 
@@ -15,9 +18,9 @@ import English from "../FlagIcons/united-kingdom.png"
 
 
 const StyledLink = styled(Link)`
-  color: black;
+  color: white;
   font-weight: bold;
-  margin-left: 0px;
+  margin-left: 20px;
 `;
 
 
@@ -27,15 +30,12 @@ function Navbar() {
 
   return (
     <NavbarStyle >
-      <StyledLink to="/" onClick={clearSearch}>
-        <i className="ri-home-4-line"></i>
-      </StyledLink>
+      
 
       <StyledLink to="/" onClick={clearSearch}>
-        <img
-          alt=""
-          src="https://fontmeme.com/permalink/200127/8f102e93957aabf7a387f12495c511d9.png"
-        ></img>
+       
+        
+        <h1 style={{fontFamily: "Ubuntu", fontWeight: "3000", color: "#D05353"}}>Movie Ratings</h1>
       </StyledLink>
 
       <StyledLink to="/search" >
@@ -50,10 +50,10 @@ function Navbar() {
          History
       </StyledLink>
       <StyledLink to="/search" onClick={() => setLanguage("en-US")}>
-        <img style={{width: "30px", height: "30px"}} src={English}></img>
+        <img style={{width: "30px", height: "30px", opacity: "0.85"}} src={English}></img>
       </StyledLink>
       <StyledLink to="/search" onClick={() => setLanguage("jp")}>
-        <img style={{width: "30px", height: "30px"}} src={Japanese}></img>
+        <img style={{width: "30px", height: "30px", opacity: "0.85"}} src={Japanese}></img>
               
               
       </StyledLink>

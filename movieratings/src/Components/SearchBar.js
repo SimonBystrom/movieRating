@@ -2,51 +2,50 @@ import React, { useContext, useState, useRef } from "react";
 import { Context } from "../Context";
 import styled, {keyframes} from 'styled-components'
 
-import SearchBarStyled from "../StyledComponents/SearchBarStyled"
+import {SearchBarStyled, SearchIcon, SearchLanguage} from "../StyledComponents/SearchBarStyled"
+import Japanese from "../FlagIcons/japan-hex.png"
+import English from "../FlagIcons/united-kingdom-hex.png"
 
 
 /* 
-  Make Searchbar SeachIcon change color when input Searchbar is active (using css and styled component
-    Make the active Search Language appear on the right side of the Searchbar
+  change to round flag for search
 */
 
 
 
-const SearchIcon = styled.i`
-  font-size: 25px;
-  color: lightgray;
-  position: absolute;
-  top: 7px;
-  left: 140px;
-  transition: all, 0.5s;
-  ${SearchBarStyled}&:invalid ~ SearchIcon{
-    color: blue;
-  }
 
-  
-`
 
 function SearchBar() {
-  const { searchMovie, submitSearch, searchInput } = useContext(Context);
-  const [active, setActive] = useState(false)
+  const { searchMovie, submitSearch, searchInput, searchLanguage } = useContext(Context);
+
+
+  function selectedLanguage(){
+    if(searchLanguage === "en-US"){
+      return English
+    } else if(searchLanguage === "jp"){
+      return Japanese
+    }
+  }
  
 
   return (
     <form 
-        style={{position: "relative"} } 
+        style={{position: "relative", cursor:"default"} } 
         onSubmit={submitSearch}
       >
-      
-      <SearchIcon className="ri-search-2-line"></SearchIcon> 
-     
-
-      <SearchBarStyled
-        placeholder="Search for a movie title.."
-        type="text"
-        name={searchInput}
-        value={searchInput}
-        onChange={searchMovie}
-      ></SearchBarStyled>
+        
+        <SearchBarStyled
+          placeholder="Search for a movie title.."
+          type="text"
+          name={searchInput}
+          value={searchInput}
+          onChange={searchMovie}
+        >
+        </SearchBarStyled>
+        <SearchIcon></SearchIcon>
+        
+        <SearchLanguage src={selectedLanguage()}></SearchLanguage>
+    
     </form>
   );
 }

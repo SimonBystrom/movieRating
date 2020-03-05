@@ -20,7 +20,7 @@ function StarRatings({movieData}) {
   const storage = () => {
       if(JSON.parse(localStorage.getItem(movieData.id))){
       return (
-          <h3 style={{paddingLeft: "10px"}}>{JSON.parse(localStorage.getItem(movieData.id)).rating}</h3> 
+          <h3 style={{paddingLeft: "10px", color: "white"}}>{JSON.parse(localStorage.getItem(movieData.id)).rating}</h3> 
         )
       } else if (!JSON.parse(localStorage.getItem(movieData.id)))
         return ""
@@ -33,6 +33,7 @@ function StarRatings({movieData}) {
         onPointerEnter={() => rateMovie(user, rating)}
         //  onClick={() => rateMovie(user, rating)}
         className="ri-star-line"
+        style={{color: "white"}}
       ></i>
     );
   };
@@ -43,17 +44,22 @@ function StarRatings({movieData}) {
         onPointerLeave={() => unRateMovie(user, rating)}
         onClick={() => rateMovie(user, rating)}
         className="ri-star-fill"
+        style={{color: "white"}}
       ></i>
     );
   };
   // Generates gold star
   let goldStar = () => {
-    return <i className="ri-star-fill" style={{ color: "gold" }}></i>;
+    return <i className="ri-star-fill" style={{ color: "#EDF060" }}></i>;
   };
 
   // Generates normal (unclickable) star. (used after rating has been set)
   let normalStar = () => {
-    return <i className="ri-star-line"></i>;
+    return <i 
+              className="ri-star-line"
+              style={{color: "white"}}>
+
+            </i>;
   };
 
   // onClick function -> runs the localStorage save function ()
@@ -224,11 +230,11 @@ function StarRatings({movieData}) {
       <i 
         className="ri-save-line"
         onClick={() => saveRating(movieData, ratingOne, ratingTwo)} 
-        style={{fontSize: "45px", paddingLeft: "10px"}}
+        style={{fontSize: "45px", paddingLeft: "10px", color: "white"}}
       >
 
       </i>
-      <i className="ri-star-fill" style={{ color: "gold", fontSize: "35px"}}></i> 
+      <i className="ri-star-fill" style={{ color: "#EDF060", fontSize: "35px"}}></i> 
       {storage()}
 
     </StarWrapper>

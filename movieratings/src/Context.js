@@ -51,7 +51,7 @@ function ContextProvider({ children }) {
     setSearchInput(e.target.value);
 
     //Adding this line makes search be more "interactive" similar to Netflix -> Creates new search with every keystroke
-    //  setSearchTarget(searchInput)
+    // setSearchTarget(searchInput)
     console.log(searchInput);
     //resets the active card to allow new search
   }
