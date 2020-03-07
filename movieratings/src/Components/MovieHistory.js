@@ -14,7 +14,7 @@ import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper,
 
 
 /*
-    Fix the click to only add info if info exists (otherwise renter nothing...)
+   Add "Delete" button to remove movies from top five to get new recommendations
 */
 
 //Movie Card Component

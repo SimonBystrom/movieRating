@@ -16,8 +16,8 @@ const fade = keyframes`
 
 export default styled.i`
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
    font-size: 25px;
     color: #EDF060;
     animation: ${fade} 0.55s;

@@ -15,8 +15,7 @@ import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper,
 
 
 /*
-    STYLE RECOMMENDATIONS TAG HOWEVER YOU WANT
-    DELETE USERRATING HOVER (no purpose) ADD NETFLIX HOWER 
+    
 */
 
 //Movie Card Component

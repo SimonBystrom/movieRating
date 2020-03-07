@@ -13,8 +13,7 @@ import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper,
   ActiveDescription, ActiveGenre} from "../StyledComponents/ActiveComp"
 
 /*
-    STYLE MOVIE SEARCH RESULTS HOWEVER YOU WANT 
-    ADD EXTRA HOVER FUCNTIONS?  
+    
 */
 
 //Movie Card Component

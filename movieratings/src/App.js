@@ -5,18 +5,22 @@ import Navbar from "./Pages/Navbar";
 import Recommendations from "./Pages/Recommendations";
 import History from './Pages/History'
 import MovieSearch from "./Pages/MovieSearch"
+import Footer from "./Components/Footer"
 import { Context } from "./Context";
 
-import Background from "./BackgroundImage/interstellar.jpg"
+import Background from "./BackgroundImage/interstellar-web.jpg"
+import SearchBackground from "./BackgroundImage/fight-club-web.jpg"
 import {StyledMainInfoWrapper, StyledTitle, StyledDescription} from "./StyledComponents/MainInfo"
 
 /* 
   NEXT STEPS
   
   1: Add Footer with The Movie DB logo (legal) and (attribute flags see below)
-  2: Add onHover (mouse enter) functions for the movieCards displaying average_rating / if watched or not (for search data) / 
-   and, maybe, and add to watchlist button (and a watchlist) 
-  3: General styling
+  2: Style Active card with delete button for History and function back button for all 
+  3: Style Genre Spans
+  4: Make it so when searching for title's (before finding title) display Text /image 
+  5: If results is bad ( no hits) return error msg 
+  6: Style average user rating to show green for good rating , yellow for so-and-so, and red for bad
 */
 
 function App() {
@@ -29,8 +33,8 @@ function App() {
       <Switch>
         <Route exact path="/">
           <StyledMainInfoWrapper>
-            <img src={Background}></img>
-            <StyledTitle>Welcome to Movie Ratings</StyledTitle>
+            <img src={Background} style={{width: "100%", height: "100%"}}></img>
+            <StyledTitle mainPage>Welcome to Movie Ratings</StyledTitle>
             <div style={{overflowWrap: "word-break"}}>
               <StyledDescription first>This site allows couples (or people who like to watch things together), 
                 to rate movies together and then get recommendations based on your top 5 rated movies. 
@@ -59,7 +63,13 @@ function App() {
             {/*conditional render of the movie card if search term active*/}
             {searchTarget.length > 0 ? (
               <MovieSearch></MovieSearch>
-            ) : <h3 style={{color: "white"}}>Please Search for title</h3>}
+            ) : (
+              <StyledMainInfoWrapper>
+                 
+                <img src={SearchBackground}></img>
+                <StyledTitle searchPage>Search for Movies titles...</StyledTitle> 
+              </StyledMainInfoWrapper>
+               )}
           </div>
         </Route>
         <Route path="/recommendations">
@@ -69,6 +79,8 @@ function App() {
           <History />
         </Route>
       </Switch>
+
+      <Footer />
     </div>
   );
 }
@@ -76,6 +88,3 @@ function App() {
 export default App;
 
 
-/*
-<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-*/
