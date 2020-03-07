@@ -15,12 +15,9 @@ import {StyledMainInfoWrapper, StyledTitle, StyledDescription} from "./StyledCom
 /* 
   NEXT STEPS
   
-  1: Add Footer with The Movie DB logo (legal) and (attribute flags see below)
   2: Style Active card with delete button for History and function back button for all 
   3: Style Genre Spans
-  4: Make it so when searching for title's (before finding title) display Text /image 
   5: If results is bad ( no hits) return error msg 
-  6: Style average user rating to show green for good rating , yellow for so-and-so, and red for bad
 */
 
 function App() {

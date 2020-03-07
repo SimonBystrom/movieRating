@@ -5,11 +5,11 @@ import AverageRatingImg from "../StyledComponents/AverageRatingImg"
 
 export default function HoverAverageRating(averageRating){
     if(averageRating >= 7.5){
-        return  <AverageRatingImg className="ri-emotion-happy-line"></AverageRatingImg>
+        return  <AverageRatingImg good className="ri-emotion-happy-line"></AverageRatingImg>
     } else if(averageRating >= 6){
-        return  <AverageRatingImg className="ri-emotion-normal-line"></AverageRatingImg>
+        return  <AverageRatingImg ok className="ri-emotion-normal-line"></AverageRatingImg>
     } else if(averageRating < 6){
-        return  <AverageRatingImg className="ri-emotion-unhappy-line"></AverageRatingImg>
+        return  <AverageRatingImg bad className="ri-emotion-unhappy-line"></AverageRatingImg>
     }
 }
 

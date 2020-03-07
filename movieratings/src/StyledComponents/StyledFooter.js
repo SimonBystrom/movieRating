@@ -6,7 +6,7 @@ export const StyledFooterWrapper = styled.div`
     align-items: center;
     background-color: #000000;
     color: white;
-    padding: 20px 270px 20px ;
+    padding: 20px 230px 20px ;
   
     
     

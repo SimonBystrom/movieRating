@@ -4,6 +4,7 @@ import StarRating from "./StarRating"
 import BackArrow from "./BackArrow"
 import {Context} from "../Context"
 import HoverUserRating from "../Hover Elements/HoverUserRating"
+import HoverAverageRating from "../Hover Elements/HoverAverageRating"
 
 import MovieImg from "../StyledComponents/MovieImg"
 import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
@@ -30,6 +31,12 @@ export default function MovieHistory(props){
         if(hovered){
         return HoverUserRating(props.id)
         }
+    }
+
+    function averageRatingInfo(){
+      if(hovered){
+        return HoverAverageRating(props.voteAverage)
+      }
     }
 
     const release = () => {
@@ -90,7 +97,7 @@ export default function MovieHistory(props){
           </MovieImg>
             
             {userRating()}
-
+            {averageRatingInfo()}
         </MovieElementWrapper>
           
             
