@@ -12,7 +12,7 @@ export const ActiveWrapper =  styled.div`
 `
 
 export const ActiveMovieInfoWrapper =  styled.div`
-    padding-top: 50px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,7 +68,7 @@ export const ActiveGenre =  styled.div`
 export const StyledBackArrow = styled.i`
     color: white;
     font-size: 65px;
-    margin-top: 50px;
+    margin-top: 30px;
     cursor: pointer;
 
 `

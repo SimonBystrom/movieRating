@@ -5,7 +5,7 @@ export const StarWrapper =  styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-top: 80px;
+    margin-top: 30px;
     
 `
 export const StarContainer = styled.div`
