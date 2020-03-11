@@ -26,7 +26,13 @@ const StyledLink = styled(Link)`
 
 
 function Navbar() {
-  const { clearSearch, setLanguage} = useContext(Context);
+  const { clearSearch, setLanguage, languageOnPage} = useContext(Context);
+
+
+  const japaneseRecommendation = "オススメ"
+  const englishRecommendation = "Recommendations"
+  const japaneseHistory =　"履歴リスト"
+  const englishHistory = "History"
 
   return (
     <NavbarStyle >
@@ -43,16 +49,16 @@ function Navbar() {
       </StyledLink>
 
       <StyledLink to="/recommendations" onClick={clearSearch}>
-         Recommendations
+         {languageOnPage === "jp" ? japaneseRecommendation : languageOnPage === "en-US" ? englishRecommendation : "Recomendations"}
       </StyledLink>
 
       <StyledLink to="/history" onClick={clearSearch}>
-         History
+        {languageOnPage === "jp" ?  japaneseHistory: languageOnPage === "en-US" ?  englishHistory : "History"}
       </StyledLink>
-      <StyledLink to="/search" onClick={() => setLanguage("en-US")}>
+      <StyledLink  onClick={() => setLanguage("en-US")}>
         <img style={{width: "30px", height: "30px", opacity: "0.85"}} src={English}></img>
       </StyledLink>
-      <StyledLink to="/search" onClick={() => setLanguage("jp")}>
+      <StyledLink  onClick={() => setLanguage("jp")}>
         <img style={{width: "30px", height: "30px", opacity: "0.85"}} src={Japanese}></img>
               
               

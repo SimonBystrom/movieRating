@@ -16,17 +16,19 @@ import English from "../FlagIcons/united-kingdom-hex.png"
 
 
 function SearchBar() {
-  const { searchMovie, submitSearch, searchInput, searchLanguage } = useContext(Context);
+  const { searchMovie, submitSearch, searchInput, languageOnPage } = useContext(Context);
 
 
   function selectedLanguage(){
-    if(searchLanguage === "en-US"){
+    if(languageOnPage === "en-US"){
       return English
-    } else if(searchLanguage === "jp"){
+    } else if(languageOnPage === "jp"){
       return Japanese
     }
   }
  
+  const japanesePlaceholder =  "タイトルを探してください. ."
+  const englishPlaceholder = "Search for a movie title.."
 
   return (
     <form 
@@ -35,7 +37,7 @@ function SearchBar() {
       >
         
         <SearchBarStyled
-          placeholder="Search for a movie title.."
+          placeholder={languageOnPage === "jp" ? japanesePlaceholder : languageOnPage === "en-US" ? englishPlaceholder : "Search for a movie title.."}
           type="text"
           name={searchInput}
           value={searchInput}
