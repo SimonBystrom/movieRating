@@ -43,14 +43,14 @@ let watchedTitles = getLocalStorage().map(item =>
       releaseDate={item.release_date}
       voteAverage={item.vote_average}
       overview={item.overview}
-      genreIds={item.genre_ids}
+      genre_ids={item.genre_ids}
       id={item.id}
       ></MovieRecommendations>)
 
   console.log(recommendations)
   return (
 
-    <MovieWrapper>
+    <MovieWrapper recommendations>
 
       {activeCard ? activeCard : results}
     </MovieWrapper>

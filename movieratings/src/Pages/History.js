@@ -22,10 +22,10 @@ export default function History(){
               key={item.movieData.id} 
               poster_path={item.movieData.poster_path} 
               title={item.movieData.title} 
-              releaseDate={item.movieData.release_date}
-              voteAverage={item.movieData.vote_average}
+              release_date={item.movieData.release_date}
+              vote_average={item.movieData.vote_average}
               overview={item.movieData.overview}
-              genreIds={item.movieData.genre_ids}
+              genre_ids={item.movieData.genre_ids}
               id={item.movieData.id}
               ></MovieHistory>)
 

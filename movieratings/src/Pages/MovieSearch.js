@@ -16,6 +16,7 @@ import MovieWrapper from "../StyledComponents/MovieWrapper"
 
 function MovieSearch(){
     const [foundSearchItems, setFoundSearchItems] = useState([])
+    const [failedSearch, setFailedSearch] = useState(false)
     const {searchTarget, activeCard, searchLanguage} = useContext(Context)
 
 
@@ -25,13 +26,12 @@ function MovieSearch(){
     let language = searchLanguage
     useAsync(async () => {
         const results =  await getSearchResults(title, language)
-        
-            setFoundSearchItems(results.results)
-    
+                setFoundSearchItems(results.results)    
         
     }, [searchTarget])
 
-
+    console.log(foundSearchItems)
+    console.log(failedSearch)
 
     let results =  foundSearchItems.map(item => {
         if(item.poster_path){
@@ -43,7 +43,7 @@ function MovieSearch(){
             release_date={item.release_date}
             vote_average={item.vote_average}
             overview={item.overview}
-            genreIds={item.genre_ids}
+            genre_ids={item.genre_ids}
             id={item.id}
             ></MovieSearched>
             )

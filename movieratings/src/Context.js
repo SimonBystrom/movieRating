@@ -29,22 +29,27 @@ function ContextProvider({ children }) {
 
   function generateGenreIDs(item) {
     let genre = "";
-
+    let newList ;
     //loops over all the genre_id's for the selected activeMovieCard
     for (let i = 0; i < item.length; i++) {
       // filters the genrelist for matches to the activeMovieCards genre_id's and adds them to 'genre'
-      genreList.filter(id => {
-        if (id.id === item[i]) {
-          genre += id.name + ",";
+      genreList.filter(list => {
+        if (list.id === item[i]) {
+          genre += list.name + ",";
         }
       });
     }
+    
+    newList = genre.split(",")
+    newList.splice(newList.length - 1, 1)
+    console.log(newList)
     //creates split seperated array of the string values in genre and maps over them creating a <span> for each
-    return genre.split(",").map(g => (
+    return newList.map(g => (
       <GenreSpan key={g}>
         {g}
       </GenreSpan>
     ));
+   
   }
 
   function searchMovie(e) {

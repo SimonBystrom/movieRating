@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useSaveToLocal} from "../useSaveToLocal"
 
-import StarWrapper from "../StyledComponents/StarsWrapper"
+import {StarWrapper, StarContainer, StyledSaveButton, StyledStar} from "../StyledComponents/StarsComp"
 
 
 /* 
@@ -14,6 +14,8 @@ function StarRatings({movieData}) {
   const [ratingTwo, setRatingTwo] = useState();
   const [clickedOne, setClickedOne] = useState(false);
   const [clickedTwo, setClickedTwo] = useState(false);
+  const [saveButtonClass, setSaveButtonClass] = useState("ri-save-line")
+  
 
   const [ratedMovies, setRatedMovies] = useSaveToLocal(movieData.id)
 
@@ -44,7 +46,7 @@ function StarRatings({movieData}) {
         onPointerLeave={() => unRateMovie(user, rating)}
         onClick={() => rateMovie(user, rating)}
         className="ri-star-fill"
-        style={{color: "white"}}
+        style={{color: "white", cursor: "pointer"}}
       ></i>
     );
   };
@@ -199,9 +201,16 @@ function StarRatings({movieData}) {
   return (
 
     <StarWrapper>
+      <div >
+        <p style={{margin: "7px", marginRight: "20px", color: "white"}}>User 1  </p>
+        <p style={{margin: "7px", marginRight: "20px", color: "white"}}>User 2  </p>
+      </div>
       
-      <div className="stars-container">
-        <div onClick={() => {
+      
+      <StarContainer>
+        
+          
+          <div onClick={() => {
           if(!clickedOne){
             setClickedOne(true)}
           else if(clickedOne){
@@ -212,7 +221,9 @@ function StarRatings({movieData}) {
           {clickedOne
             ? goldStarRender("user1", ratingOne)
             : starRender("user1", ratingOne)}
-        </div>
+          </div>
+        
+        
 
         <div onClick={() => {
           if(!clickedTwo){
@@ -226,15 +237,16 @@ function StarRatings({movieData}) {
             ? goldStarRender("user2", ratingTwo)
             : starRender("user2", ratingTwo)}
         </div>
-      </div>
-      <i 
-        className="ri-save-line"
-        onClick={() => saveRating(movieData, ratingOne, ratingTwo)} 
-        style={{fontSize: "45px", paddingLeft: "10px", color: "white"}}
-      >
-
-      </i>
-      <i className="ri-star-fill" style={{ color: "#EDF060", fontSize: "35px"}}></i> 
+      </StarContainer>
+      <StyledSaveButton
+          className={saveButtonClass}
+          onClick={() => {
+            saveRating(movieData, ratingOne, ratingTwo)
+            setSaveButtonClass("ri-checkbox-circle-line")
+            }}
+      > </StyledSaveButton>
+      <StyledStar className="ri-star-fill"></StyledStar>
+      
       {storage()}
 
     </StarWrapper>

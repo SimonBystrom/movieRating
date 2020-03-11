@@ -41,22 +41,21 @@ export default function MovieSearched(props){
       <MovieElementWrapper
         search
         ref={ref}
-        style={{position: "relative"}}
         onClick={() => {
             setActiveCard(
               <ActiveWrapper>
                 <ActiveImg src={props.poster_path}></ActiveImg>
               
-                <BackArrow />
+                
                 <ActiveMovieInfoWrapper>
                   <ActiveTitle>{props.title}</ActiveTitle>
                   <ActiveRelease>{props.release_date.substring(0,4)}</ActiveRelease>
                   <ActiveRating>{props.vote_average} / 10</ActiveRating>
                   <ActiveDescription>{props.overview}</ActiveDescription>
-                  <ActiveGenre>{generateGenreIDs(props.genreIds)}</ActiveGenre>
+                  <ActiveGenre>{generateGenreIDs(props.genre_ids)}</ActiveGenre>
               
                   <StarRating movieData={props} />
-          
+                  <BackArrow />
                 </ActiveMovieInfoWrapper>
                   
             

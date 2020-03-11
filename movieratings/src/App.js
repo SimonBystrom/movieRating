@@ -10,27 +10,28 @@ import { Context } from "./Context";
 
 import Background from "./BackgroundImage/interstellar-web.jpg"
 import SearchBackground from "./BackgroundImage/fight-club-web.jpg"
-import {StyledMainInfoWrapper, StyledTitle, StyledDescription} from "./StyledComponents/MainInfo"
+import {StyledMainInfoWrapper, StyledTitle, StyledDescription, PageContainer, ContentWrapper} from "./StyledComponents/MainInfo"
 
 /* 
   NEXT STEPS
-  
-  2: Style Active card with delete button for History and function back button for all 
-  3: Style Genre Spans
-  5: If results is bad ( no hits) return error msg 
+  1: Random bug with window.scrollTo() in History
+  2: mediaQueries 
+  5: If results is bad ( no hits) return error msg  ??
+  6: Add so pushing the Japanese / English Button Translates First page into English / Japanese (ThemeProvider through context)
 */
 
 function App() {
   const { searchTarget } = useContext(Context);
 
   return (
-    <div className="App">
+    <PageContainer>
+      <ContentWrapper>
       <Navbar />
 
       <Switch>
         <Route exact path="/">
           <StyledMainInfoWrapper>
-            <img src={Background} style={{width: "100%", height: "100%"}}></img>
+            <img src={Background} style={{ height: "100%"}}></img>
             <StyledTitle mainPage>Welcome to Movie Ratings</StyledTitle>
             <div style={{overflowWrap: "word-break"}}>
               <StyledDescription first>This site allows couples (or people who like to watch things together), 
@@ -76,9 +77,10 @@ function App() {
           <History />
         </Route>
       </Switch>
+      </ContentWrapper>
 
       <Footer />
-    </div>
+    </PageContainer>
   );
 }
 

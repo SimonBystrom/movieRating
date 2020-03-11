@@ -26,3 +26,15 @@ export const StyledDescription = styled.p`
     /* padding-left: ${props => props.first ? "0px" : props.second ? "10px" : props.third ? "20px" : props.fourth ? "30px" : "0px"}; */
 `
 
+export const PageContainer = styled.div`
+    position: relative;
+    min-height: 100vh;
+    max-width: 100vw;
+    text-align: center;
+    background-color: #171219;
+
+`
+
+export const ContentWrapper = styled.div`
+    padding-bottom: 87px;
+`
