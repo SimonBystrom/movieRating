@@ -27,7 +27,7 @@ function SearchBar() {
     }
   }
  
-  const japanesePlaceholder =  "タイトルを探してください. ."
+  const japanesePlaceholder =  "タイトルを入力してください. ."
   const englishPlaceholder = "Search for a movie title.."
 
   return (

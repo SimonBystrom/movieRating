@@ -14,7 +14,6 @@ import {StyledMainInfoWrapper, StyledTitle, StyledDescription, PageContainer, Co
 
 /* 
   NEXT STEPS
-  1: Random bug with window.scrollTo() in History
   2: mediaQueries 
   5: If results is bad ( no hits) return error msg  ??
   6: Add so pushing the Japanese / English Button Translates First page into English / Japanese (ThemeProvider through context)

@@ -8,7 +8,11 @@ export const StyledFooterWrapper = styled.div`
     color: white;
     padding: 20px 0px 20px 0px ;
    
-    width: 100vw;
+
+     width: 1440px;
+
+  
+   
     height: 50px;
     z-index: 100;
     bottom: 0;

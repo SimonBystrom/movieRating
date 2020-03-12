@@ -14,7 +14,10 @@ export default styled.div`
   
     box-shadow: 0px 8px 20px 10px rgba(0,0,0,0.75);
     position: fixed;
+
+    
     width: 100%;
+    
     height: 50px;
     z-index: 100;
     top: 0;

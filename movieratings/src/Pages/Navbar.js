@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../Components/SearchBar";
 import { Context } from "../Context";
-import { createGlobalStyle } from "styled-components";
+
 
 import styled from 'styled-components'
 
@@ -31,28 +31,37 @@ function Navbar() {
 
   const japaneseRecommendation = "オススメ"
   const englishRecommendation = "Recommendations"
-  const japaneseHistory =　"履歴リスト"
+  const japaneseHistory =　"履歴"
   const englishHistory = "History"
 
   return (
     <NavbarStyle >
       
 
-      <StyledLink to="/" onClick={clearSearch}>
+      <StyledLink to="/" onClick={() => {
+        clearSearch()
+        window.scrollTo(0,0)
+        }}>
        
         
         <h1 style={{fontFamily: "Ubuntu", fontWeight: "3000", color: "#D05353"}}>Movie Ratings</h1>
       </StyledLink>
 
-      <StyledLink to="/search" >
+      <StyledLink to="/search" onClick={window.scrollTo(0,0)}>
         <SearchBar className="search-bar" />
       </StyledLink>
 
-      <StyledLink to="/recommendations" onClick={clearSearch}>
+      <StyledLink to="/recommendations" onClick={() => {
+        clearSearch()
+        window.scrollTo(0,0)
+        }}>
          {languageOnPage === "jp" ? japaneseRecommendation : languageOnPage === "en-US" ? englishRecommendation : "Recomendations"}
       </StyledLink>
 
-      <StyledLink to="/history" onClick={clearSearch}>
+      <StyledLink to="/history" onClick={() => {
+        clearSearch()
+        window.scrollTo(0,0)
+        }}>
         {languageOnPage === "jp" ?  japaneseHistory: languageOnPage === "en-US" ?  englishHistory : "History"}
       </StyledLink>
       <StyledLink  onClick={() => setLanguage("en-US")}>
