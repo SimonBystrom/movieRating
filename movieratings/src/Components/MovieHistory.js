@@ -6,19 +6,16 @@ import {Context} from "../Context"
 import HoverUserRating from "../Hover Elements/HoverUserRating"
 import HoverAverageRating from "../Hover Elements/HoverAverageRating"
 
-import MovieImg from "../StyledComponents/MovieImg"
-import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
+import {MovieImg, MovieElementWrapper} from "../StyledComponents/MovieCardStyles"
 import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper, 
         ActiveTitle, ActiveRelease, ActiveRating,
         ActiveDescription, ActiveGenre} from "../StyledComponents/ActiveComp"
 
 
 
-/*
-   Add "Delete" button to remove movies from top five to get new recommendations
-*/
 
-//Movie Card Component
+
+//Renders the individual movieCard elements for the History tab
 
 export default function MovieHistory(props){
     const [hovered, ref] = useHover()
@@ -26,13 +23,14 @@ export default function MovieHistory(props){
     
    
     
-
+// displays if the movie has been rated by user when hovering 
     function userRating(){
         if(hovered){
         return HoverUserRating(props.id)
         }
     }
 
+// displays the Average Rating when hovering (green smiley / yellow smiley / red smiley)
     function averageRatingInfo(){
       if(hovered){
         return HoverAverageRating(props.vote_average)
@@ -67,8 +65,8 @@ export default function MovieHistory(props){
         <MovieElementWrapper 
           history
           ref={ref}
-          // style={{position: "relative"}}
           onClick={() => {
+            // Onclick displays the selected movie's information
             setActiveCard(
               <ActiveWrapper>
                 <ActiveImg src={props.poster_path}>
@@ -87,13 +85,12 @@ export default function MovieHistory(props){
                   <StarRating movieData={props} />
                   <BackArrow />
                 </ActiveMovieInfoWrapper>
-                
-             
+     
               </ActiveWrapper>
               
             )
             //set window view back to normal non-scrolled
-           window.scrollTo(0, 40);
+           window.scrollTo(0,40)
           }}
         >
           <MovieImg history src={props.poster_path}>
@@ -103,11 +100,6 @@ export default function MovieHistory(props){
             {userRating()}
             {averageRatingInfo()}
         </MovieElementWrapper>
-          
-            
-           
-          
-       
         
     )
 }

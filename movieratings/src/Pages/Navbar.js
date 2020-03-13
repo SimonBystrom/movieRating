@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SearchBar from "../Components/SearchBar";
 import { Context } from "../Context";
 
-
 import styled from 'styled-components'
 
 import NavbarStyle from "../StyledComponents/NavbarStyle"
@@ -11,11 +10,8 @@ import Japanese from "../FlagIcons/japan.png"
 import English from "../FlagIcons/united-kingdom.png"
 
 
-/* 
-  Style the StyledLink so they look good an appear correctly! 
-*/
 
-
+// the Styled Links
 
 const StyledLink = styled(Link)`
   color: white;
@@ -24,6 +20,7 @@ const StyledLink = styled(Link)`
 `;
 
 
+// Navbar for the page
 
 function Navbar() {
   const { clearSearch, setLanguage, languageOnPage} = useContext(Context);

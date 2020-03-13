@@ -1,5 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 
+// Styles for all StarRating Components
+
 export const StarWrapper =  styled.div`
     display: flex;
     flex-direction: row;

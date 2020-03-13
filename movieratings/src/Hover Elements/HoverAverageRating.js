@@ -1,5 +1,7 @@
 import React from "react"
 
+// Renders the average user rating based on score (Green Happy Smiley / Yellow normal / Red Frown)
+
 import AverageRatingImg from "../StyledComponents/AverageRatingImg"
 
 

@@ -1,9 +1,9 @@
 import React, { createContext, useEffect, useState } from "react";
 
-import GenreSpan from "./StyledComponents/GenreSpan"
+import GenreDiv from "./StyledComponents/GenreDiv"
 
 /* 
-
+  Context Provider
 */
 
 const Context = createContext();
@@ -27,6 +27,7 @@ function ContextProvider({ children }) {
       });
   }, []);
 
+  // Generates the renders Genres
   function generateGenreIDs(item) {
     let genre = "";
     let newList ;
@@ -40,44 +41,54 @@ function ContextProvider({ children }) {
       });
     }
     
+    // makes the list into array of the genre names
     newList = genre.split(",")
+    // removes last "empty" array item
     newList.splice(newList.length - 1, 1)
     console.log(newList)
-    //creates split seperated array of the string values in genre and maps over them creating a <span> for each
+   
     return newList.map(g => (
-      <GenreSpan key={g}>
+      <GenreDiv key={g}>
         {g}
-      </GenreSpan>
+      </GenreDiv>
     ));
    
   }
 
+  // sets searchbox input to the correct entered keys
   function searchMovie(e) {
     setSearchInput(e.target.value);
 
-    //Adding this line makes search be more "interactive" similar to Netflix -> Creates new search with every keystroke
-    // setSearchTarget(searchInput)
+    /*
+    Adding this line makes search be more "interactive" similar to Netflix -> 
+    Creates new search with every keystroke (maybe bad performance)
+    */   // setSearchTarget(searchInput)
+      
     console.log(searchInput);
-    //resets the active card to allow new search
+    
   }
 
   function submitSearch(e) {
     e.preventDefault();
+    //resets the active card to allow new search
     setActiveCard(null);
     setSearchTarget(searchInput);
     console.log(searchTarget);
   }
 
+  // Clears search "resetting" page when going between pages
   function clearSearch() {
     setSearchTarget("");
     setSearchInput("");
     setActiveCard(null)
   }
 
+  // Sets active card to null (used in BackArrow)
   function returnPreviousPage() {
     setActiveCard(null);
   }
-
+  
+// Sets page and search Language
   function setLanguage(language){
     setLanguageOnPage(language)
     

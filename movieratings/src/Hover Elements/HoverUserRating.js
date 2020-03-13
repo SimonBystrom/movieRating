@@ -1,6 +1,7 @@
 import UserRatingImg from "../StyledComponents/UserRatingImg"
 import React from "react"
-//Fix so movies looked at but not rated also returns something 
+
+//Renders a star when hovering a movie if movie has been rated
 
 
 export default function HoverUserRating(id){

@@ -1,25 +1,33 @@
 import styled from 'styled-components'
 
-
+// Searchbar Styles
 
  export const  SearchBarStyled =  styled.input`
     transition: all, 0.5s;
+
     padding-left: 45px;
     padding-bottom: 3px;
+
     margin-left: 120px;
     margin-right: 60px;
+
     border-radius: 0px;
+
     height: 35px;
     width: 400px;
+   
     border-bottom: 1px solid white;
     border-top: 0px;
     border-left: 0px;
-    border-right: 0px;
+    border-right: 0px; 
     outline: none;
+
     font-size: 20px;
     font-style: none;
     color: white;
+
     background-color: #191919;
+    
     z-index: 110;
     opacity: 0.6;
     

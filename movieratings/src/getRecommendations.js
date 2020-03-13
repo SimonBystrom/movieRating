@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 
 /*
- if more than 10 titles in watched, give more recommendations 
+ Fetches recommendations based on top 5 rated movies
 */
 
 export async function getRecommendations(likedTitles, watchedTitles) {

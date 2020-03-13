@@ -5,9 +5,7 @@ import BackArrow from "./BackArrow"
 import {Context} from "../Context"
 
 
-
-import MovieImg from "../StyledComponents/MovieImg"
-import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
+import {MovieImg, MovieElementWrapper} from "../StyledComponents/MovieCardStyles"
 import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper, 
   ActiveTitle, ActiveRelease, ActiveRating,
   ActiveDescription, ActiveGenre} from "../StyledComponents/ActiveComp"
@@ -18,10 +16,10 @@ import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper,
     
 */
 
-//Movie Card Component
+//Renders the individual movieCard elements for the Recommendations tab
+ 
 
 export default function MovieSearched(props){
-    const [hovered, ref] = useHover()
     const {setActiveCard, generateGenreIDs} = useContext(Context)
 
 
@@ -29,8 +27,8 @@ export default function MovieSearched(props){
     return (
       <MovieElementWrapper 
       recommendation
-      ref={ref}
       onClick={() => {
+        // Onclick displays the selected movie's information
           setActiveCard(
 
             <ActiveWrapper>
@@ -40,8 +38,8 @@ export default function MovieSearched(props){
                 
                 <ActiveMovieInfoWrapper>
                   <ActiveTitle>{props.title}</ActiveTitle>
-                  <ActiveRelease>{props.releaseDate.substring(0,4)}</ActiveRelease>
-                  <ActiveRating>{props.voteAverage} / 10</ActiveRating>
+                  <ActiveRelease>{props.release_date.substring(0,4)}</ActiveRelease>
+                  <ActiveRating>{props.vote_average} / 10</ActiveRating>
                   <ActiveDescription>{props.overview}</ActiveDescription>
                   <ActiveGenre>{generateGenreIDs(props.genre_ids)}</ActiveGenre>
               

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 
-//Continue styling Navbar! 
+//Navbar Styling
 
 export default styled.div`
     

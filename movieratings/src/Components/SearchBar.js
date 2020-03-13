@@ -13,12 +13,13 @@ import English from "../FlagIcons/united-kingdom-hex.png"
 
 
 
-
+// The searchbar (rendered in the Navbar)
 
 function SearchBar() {
   const { searchMovie, submitSearch, searchInput, languageOnPage } = useContext(Context);
 
 
+// depending on selected language for page -> renders English/Japanese flag in the searchbar
   function selectedLanguage(){
     if(languageOnPage === "en-US"){
       return English
@@ -37,7 +38,9 @@ function SearchBar() {
       >
         
         <SearchBarStyled
-          placeholder={languageOnPage === "jp" ? japanesePlaceholder : languageOnPage === "en-US" ? englishPlaceholder : "Search for a movie title.."}
+          placeholder={languageOnPage === "jp" ? japanesePlaceholder : 
+                      languageOnPage === "en-US" ? englishPlaceholder : 
+                      "Search for a movie title.."}
           type="text"
           name={searchInput}
           value={searchInput}

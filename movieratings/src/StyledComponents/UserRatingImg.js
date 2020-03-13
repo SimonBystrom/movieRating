@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
+// UserRating hover element styles
+
 const fade = keyframes`
    from {
        opacity: 0;
@@ -18,7 +20,7 @@ export default styled.i`
     position: absolute;
     top: 5px;
     right: 5px;
-   font-size: 25px;
+    font-size: 25px;
     color: #EDF060;
     animation: ${fade} 0.55s;
     animation-fill-mode: forwards;

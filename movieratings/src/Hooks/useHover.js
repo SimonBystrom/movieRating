@@ -1,5 +1,10 @@
 import {useState, useRef, useEffect} from "react"
 
+/* 
+Custom hook that adds an event listener to the currently hovered movie element (using ref)
+ and then removes it when mouse leaves
+*/
+
 export default function useHover(){
     const [hovered, setHovered] = useState(false)
     const ref = useRef(null)

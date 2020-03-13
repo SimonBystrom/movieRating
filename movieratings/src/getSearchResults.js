@@ -1,4 +1,4 @@
-// used by MovieRender in it's async method
+// Fetches search results (used by MovieSearched in it's async method)
 
 export async function getSearchResults(searchTarget, searchLanguage){
     

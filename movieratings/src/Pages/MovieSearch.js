@@ -5,23 +5,19 @@ import { useAsync } from "react-use";
 import { Context } from "../Context";
 import {getSearchResults} from "../getSearchResults"
 
-import MovieWrapper from "../StyledComponents/MovieWrapper"
+import {MovieWrapper} from "../StyledComponents/MovieCardStyles"
 
 
-// Renders the results from search by mapping over the results and passing the data as props into the Movie component
 
-/*
-    Make it so if there's no results from search show error msg
-*/
+// Renders the searched titles
 
 function MovieSearch(){
     const [foundSearchItems, setFoundSearchItems] = useState([])
-    const [failedSearch, setFailedSearch] = useState(false)
     const {searchTarget, activeCard, searchLanguage} = useContext(Context)
 
 
 
-
+// takes the entered input (searchTarget) and currently selected language (searchLanguage) -> Makes a fetch to TMDB
     let title = searchTarget
     let language = searchLanguage
     useAsync(async () => {
@@ -31,7 +27,6 @@ function MovieSearch(){
     }, [searchTarget])
 
     console.log(foundSearchItems)
-    console.log(failedSearch)
 
     let results =  foundSearchItems.map(item => {
         if(item.poster_path){
@@ -50,10 +45,6 @@ function MovieSearch(){
         }}
     )
        
-    
-
-        
-
     return(
     
           <MovieWrapper search>{activeCard ? activeCard : results }</MovieWrapper>

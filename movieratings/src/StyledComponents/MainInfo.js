@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+// All styles for the App.js page
+
 
 export const StyledMainInfoWrapper = styled.div`
     position: relative;
@@ -23,13 +25,14 @@ export const StyledDescription = styled.p`
     font-family: "Ubuntu Condensed";
     max-width: ${props => props.first ? "450px" : props.second ? "220px" : props.third ? "250px" : props.fourth ? "350px" : "0px"};
     text-align: left;
-    /* padding-left: ${props => props.first ? "0px" : props.second ? "10px" : props.third ? "20px" : props.fourth ? "30px" : "0px"}; */
+    font-size: ${props => props.lang === "jp" ? "14px" : "16px"};
+   
 `
 
 export const PageContainer = styled.div`
     position: relative;
-   
     
+    min-height: 100%;
     max-width: 100vw;
     text-align: center;
     background-color: #171219;
@@ -37,5 +40,5 @@ export const PageContainer = styled.div`
 `
 
 export const ContentWrapper = styled.div`
-    padding-bottom: 87px;
+    padding-bottom: 50px;
 `

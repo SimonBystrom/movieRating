@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+// Displayed Genre styles
+
 export default styled.div`
     border: 2px solid white;
     border-radius: 4px;

@@ -3,11 +3,11 @@ import { getLocalStorage } from "../getLocalStorage"
 import { Context } from "../Context";
 import MovieHistory from "../Components/MovieHistory"
 
-import MovieWrapper from "../StyledComponents/MovieWrapper"
+import {MovieWrapper} from "../StyledComponents/MovieCardStyles"
 
 
 /*
-1: add styling (includes hover feature)
+    Renders the History or the selected Movie Card
 */
 
 export default function History(){
@@ -16,7 +16,7 @@ export default function History(){
 
     console.log(watchedTitles)
 
-
+// Maps over the watched titles (local storage) -> display MovieHistory
     let results = watchedTitles.map(item => 
       <MovieHistory
               key={item.movieData.id} 

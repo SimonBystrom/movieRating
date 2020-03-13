@@ -6,8 +6,7 @@ import {Context} from "../Context"
 import HoverUserRating from "../Hover Elements/HoverUserRating"
 import HoverAverageRating from "../Hover Elements/HoverAverageRating"
 
-import MovieImg  from "../StyledComponents/MovieImg"
-import MovieElementWrapper from "../StyledComponents/MovieElementWrapper"
+import {MovieImg, MovieElementWrapper} from "../StyledComponents/MovieCardStyles"
 import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper, 
   ActiveTitle, ActiveRelease, ActiveRating,
   ActiveDescription, ActiveGenre} from "../StyledComponents/ActiveComp"
@@ -16,20 +15,21 @@ import {ActiveWrapper, ActiveImg, ActiveMovieInfoWrapper,
     
 */
 
-//Movie Card Component
+//Renders the individual movieCard elements for the Recommendations tab
 
 export default function MovieSearched(props){
     const [hovered, ref] = useHover()
     const {setActiveCard, generateGenreIDs} = useContext(Context)
 
    
-
+// displays if the movie has been rated by user when hovering 
     function userRating(){
         if(hovered){
         return HoverUserRating(props.id)
         }
     }
 
+// displays the Average Rating when hovering (green smiley / yellow smiley / red smiley)
     function averageRatingInfo(){
       if(hovered){
         return HoverAverageRating(props.vote_average)
@@ -43,6 +43,7 @@ export default function MovieSearched(props){
         ref={ref}
         onClick={() => {
             setActiveCard(
+              // Onclick displays the selected movie's information
               <ActiveWrapper>
                 <ActiveImg src={props.poster_path}></ActiveImg>
               

@@ -5,9 +5,11 @@ import {StarWrapper, StarContainer, StyledSaveButton, StyledStar} from "../Style
 
 
 /* 
-1: Add half stars?
-2: Clean up code?? 
+  Renders The Stars for the user to rate selected movies after searching
+  Renders a save icon -> saves rating and movie info to LocalStorage
+  Renders previous Rating (if any)
 */
+
 
 function StarRatings({movieData}) {
   const [ratingOne, setRatingOne] = useState();

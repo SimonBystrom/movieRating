@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+// Footer Styles
+
 export const StyledFooterWrapper = styled.div`
     display: flex;
     justify-content: flex-start;

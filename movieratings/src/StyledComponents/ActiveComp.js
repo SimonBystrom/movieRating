@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 
+// All styling for components in the activeCard
 
 
 export const ActiveWrapper =  styled.div`

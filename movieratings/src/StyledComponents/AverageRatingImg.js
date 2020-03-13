@@ -1,5 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 
+//  Average rating styles
+
 const fade = keyframes`
    from {
        opacity: 0;

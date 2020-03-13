@@ -3,7 +3,7 @@ import { Context } from "../Context";
 
 import {StyledBackArrow} from "../StyledComponents/ActiveComp"
 
-//fuction sets the active search card -> null -> returns to search target page
+//BackArrow sets the active searchCard -> null. This takes us back to previous "page"
 
 function BackArrow() {
   const { returnPreviousPage } = useContext(Context);

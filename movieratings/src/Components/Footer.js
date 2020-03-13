@@ -4,6 +4,8 @@ import {StyledFooterWrapper, StyledFooterAnchor, StyledFooterImg, StyledFooterP,
 import TMDB from "../BackgroundImage/TMDB-legal.png"
 
 
+// Footer with links to Icons (flags) and TMDB (legal) and the project (Git) and my github page
+
 export default function Footer(){
 
     return(
@@ -39,13 +41,3 @@ export default function Footer(){
         </StyledFooterWrapper>
     )
 }
-
-
-/*
-<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-
-
-TMDB-legal
-https://www.themoviedb.org/
-This product uses the TMDb API but is not endorsed or certified by TMDb.
-*/
