@@ -31,8 +31,9 @@ export const StyledDescription = styled.p`
 
 export const PageContainer = styled.div`
     position: relative;
-    
-    min-height: 100%;
+    display: block;
+    padding-bottom: 50px;
+    min-height: 100vh;
     max-width: 100vw;
     text-align: center;
     background-color: #171219;
@@ -40,5 +41,7 @@ export const PageContainer = styled.div`
 `
 
 export const ContentWrapper = styled.div`
-    padding-bottom: 50px;
+    
+   
+    
 `

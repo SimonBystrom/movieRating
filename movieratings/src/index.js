@@ -9,7 +9,7 @@ import "remixicon/fonts/remixicon.css";
 
 ReactDOM.render(
   <ContextProvider>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </ContextProvider>,

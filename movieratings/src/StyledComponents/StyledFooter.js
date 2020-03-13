@@ -3,6 +3,7 @@ import styled from 'styled-components'
 // Footer Styles
 
 export const StyledFooterWrapper = styled.div`
+    position: absolute;  
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -14,13 +15,13 @@ export const StyledFooterWrapper = styled.div`
      width: 1440px;
 
   
-   
+    margin-top: -50px;
     height: 50px;
     z-index: 100;
     bottom: 0;
     left: 0;
     font-size: 12px;
-    position: absolute;    
+      
 `
 
 export const FooterContainer = styled.div`

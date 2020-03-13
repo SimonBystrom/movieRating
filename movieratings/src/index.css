@@ -1,7 +1,8 @@
 
 
 html, body {
-  height: 100%;
+  height: 100%; 
+  position: relative;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,5 +21,9 @@ code {
 
 a{
   text-decoration: none;
+}
+
+.ri-star-line , .ri-star-fill {
+  font-size: 20px;
 }
 
