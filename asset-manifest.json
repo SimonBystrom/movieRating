@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/movieRatings/static/css/main.978bee60.chunk.css",
+    "main.js": "/movieRatings/static/js/main.9a78fd46.chunk.js",
+    "main.js.map": "/movieRatings/static/js/main.9a78fd46.chunk.js.map",
+    "runtime-main.js": "/movieRatings/static/js/runtime-main.ac5eaf3c.js",
+    "runtime-main.js.map": "/movieRatings/static/js/runtime-main.ac5eaf3c.js.map",
+    "static/css/2.6a9e0700.chunk.css": "/movieRatings/static/css/2.6a9e0700.chunk.css",
+    "static/js/2.703fdb0e.chunk.js": "/movieRatings/static/js/2.703fdb0e.chunk.js",
+    "static/js/2.703fdb0e.chunk.js.map": "/movieRatings/static/js/2.703fdb0e.chunk.js.map",
+    "index.html": "/movieRatings/index.html",
+    "precache-manifest.0e5178f177eff4b3432c9f15a3fd3575.js": "/movieRatings/precache-manifest.0e5178f177eff4b3432c9f15a3fd3575.js",
+    "service-worker.js": "/movieRatings/service-worker.js",
+    "static/css/2.6a9e0700.chunk.css.map": "/movieRatings/static/css/2.6a9e0700.chunk.css.map",
+    "static/css/main.978bee60.chunk.css.map": "/movieRatings/static/css/main.978bee60.chunk.css.map",
+    "static/js/2.703fdb0e.chunk.js.LICENSE": "/movieRatings/static/js/2.703fdb0e.chunk.js.LICENSE",
+    "static/media/fight-club-web.jpg": "/movieRatings/static/media/fight-club-web.406d0c24.jpg",
+    "static/media/interstellar-web.jpg": "/movieRatings/static/media/interstellar-web.3f4e7b0c.jpg",
+    "static/media/japan-hex.png": "/movieRatings/static/media/japan-hex.b2b186b2.png",
+    "static/media/remixicon.css": "/movieRatings/static/media/remixicon.e557a8c5.eot",
+    "static/media/united-kingdom-hex.png": "/movieRatings/static/media/united-kingdom-hex.72cc71a6.png",
+    "static/media/united-kingdom.png": "/movieRatings/static/media/united-kingdom.cec2ca9a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac5eaf3c.js",
+    "static/css/2.6a9e0700.chunk.css",
+    "static/js/2.703fdb0e.chunk.js",
+    "static/css/main.978bee60.chunk.css",
+    "static/js/main.9a78fd46.chunk.js"
+  ]
+}
