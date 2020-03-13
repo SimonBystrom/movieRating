@@ -41,7 +41,7 @@ function App() {
       <Navbar />
 
       <Switch>
-        <Route exact path="/">
+        <Route exact path={process.env.PUBLIC_URL + "/"}>
           <StyledMainInfoWrapper>
             <img src={Background} style={{ height: "100%"}}></img>
             <StyledTitle mainPage>
