@@ -14,6 +14,7 @@ import English from "../FlagIcons/united-kingdom.png"
 // the Styled Links
 
 const StyledLink = styled(Link)`
+  display: flex;
   color: white;
   font-weight: bold;
   margin-left: 20px;
@@ -33,14 +34,11 @@ function Navbar() {
 
   return (
     <NavbarStyle >
-      
-
-      <StyledLink to="/" onClick={() => {
+     <StyledLink to="/" onClick={() => {
         clearSearch()
         window.scrollTo(0,0)
         }}>
        
-        
         <h1 style={{fontFamily: "Ubuntu", fontWeight: "3000", color: "#D05353"}}>Movie Ratings</h1>
       </StyledLink>
 
@@ -66,8 +64,6 @@ function Navbar() {
       </StyledLink>
       <StyledLink  onClick={() => setLanguage("jp")}>
         <img style={{width: "30px", height: "30px", opacity: "0.85"}} src={Japanese}></img>
-              
-              
       </StyledLink>
     </NavbarStyle>
   );

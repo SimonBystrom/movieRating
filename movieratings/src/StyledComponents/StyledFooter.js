@@ -10,11 +10,9 @@ export const StyledFooterWrapper = styled.div`
     background-color: #000000;
     color: white;
     padding: 20px 0px 20px 0px ;
-   
 
-     width: 1440px;
+    width: 100vw;
 
-  
     margin-top: -50px;
     height: 50px;
     z-index: 100;

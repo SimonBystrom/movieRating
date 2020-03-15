@@ -1,10 +1,19 @@
 import styled from 'styled-components'
 
+
 // All styles for the App.js page
 
 
 export const StyledMainInfoWrapper = styled.div`
-    position: relative;
+    background-image: url(${props => props.homeImg ? `${props.homeImg}` :  props.searchImg ? `${props.searchImg}` : "null"});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100vw;
+    height: 100vh;
+    position: relative;  
+    background-color: #171219;
     
 `
 

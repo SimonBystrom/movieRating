@@ -7,13 +7,11 @@ import MovieSearch from "./Pages/MovieSearch"
 import Footer from "./Components/Footer"
 import { Context } from "./Context";
 
-import Background from "./BackgroundImage/interstellar-web.jpg"
-import SearchBackground from "./BackgroundImage/fight-club-web.jpg"
 import {StyledMainInfoWrapper, StyledTitle, StyledDescription, PageContainer, ContentWrapper} from "./StyledComponents/MainInfo"
 
 /* 
   NEXT STEPS
-  1: mediaQueries (footer always bottom / viewHeight too long when using iPad etc) + fix 4K displays?
+  1: mediaQueries (fix navbar when using phones etc) 
   2: If results is bad ( no hits) return error msg  ??
   3: Strange window.scrollTo() bug in movieElements (history / recommendations / searched)
 */
@@ -42,11 +40,12 @@ function App() {
 
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + "/"}>
-          <StyledMainInfoWrapper>
-            <img src={Background} style={{ height: "100%"}}></img>
+          <StyledMainInfoWrapper homeImg={process.env.PUBLIC_URL + '/img/interstellar.jpg'}>
+            
             <StyledTitle mainPage>
               {languageOnPage === "jp" ?  titleJP: languageOnPage === "en-US" ?  titleEN : "Welcome to Movie Ratings"}
               </StyledTitle>
+
             <div style={{overflowWrap: "word-break"}}>
               <StyledDescription first lang={languageOnPage}>
               {languageOnPage === "jp" ?  descriptionP1JP: languageOnPage === "en-US" ?  descriptionP1EN : ""}
@@ -62,8 +61,8 @@ function App() {
                 <StyledDescription fourth lang={languageOnPage}>
                 {languageOnPage === "jp" ?  descriptionP4JP: languageOnPage === "en-US" ?  descriptionP4EN : ""}
                 </StyledDescription>
-                
             </div>
+
           </StyledMainInfoWrapper>
           
         </Route>
@@ -73,9 +72,8 @@ function App() {
             {searchTarget.length > 0 ? (
               <MovieSearch></MovieSearch>
             ) : (
-              <StyledMainInfoWrapper>
-                 
-                <img src={SearchBackground}></img>
+              <StyledMainInfoWrapper searchImg={process.env.PUBLIC_URL + '/img/joker.jpg'}>
+              
                 <StyledTitle searchPage>Search for Movies titles...</StyledTitle> 
               </StyledMainInfoWrapper>
                )}
