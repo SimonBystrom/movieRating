@@ -9,7 +9,7 @@ export const StyledMainInfoWrapper = styled.div`
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    padding-top: 80px;
     width: 100vw;
     height: 100vh;
     position: relative;  
@@ -19,8 +19,8 @@ export const StyledMainInfoWrapper = styled.div`
 
 export const StyledTitle = styled.h1`
     position: absolute;
-    top: ${props => props.mainPage ? "130px" : props.searchPage ? "195px" : "130px"};
-    left: ${ props => props.mainPage ? "120px" : props.searchPage ? "550px" : "120px"};
+    top: ${props => props.mainPage ? "130px" : props.searchPage ? "180px" : "130px"};
+    left: ${ props => props.mainPage ? "120px" : props.searchPage ? "400px" : "120px"};
     font-size: ${props => props.searchPage ? "26px" : "32px"};
     color: white;
     font-family: "Ubuntu";

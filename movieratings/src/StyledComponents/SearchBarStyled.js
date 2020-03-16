@@ -8,7 +8,7 @@ import styled from 'styled-components'
     padding-left: 45px;
     padding-bottom: 3px;
 
-    margin-left: 120px;
+    margin-left: 10%;
     margin-right: 60px;
 
     border-radius: 0px;
@@ -27,7 +27,7 @@ import styled from 'styled-components'
     color: white;
 
     background-color: #191919;
-    
+
     z-index: 110;
     opacity: 0.6;
     
@@ -57,7 +57,7 @@ export const SearchIcon = styled.i.attrs({
   opacity: 0.2;
   position: absolute;
   top: 8px;
-  left: 120px;
+  left: 10%;
   transition: all, 0.5s;
    ${SearchBarStyled}:focus ~ & {
       opacity: 1;
@@ -72,7 +72,7 @@ export const SearchIcon = styled.i.attrs({
     height: 25px;
     position: absolute;
     top: 8px;
-    right: 60px;
+    right: 2%;
     opacity: 0;
     cursor: text;
     filter: grayscale(100%);

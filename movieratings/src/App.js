@@ -4,7 +4,7 @@ import Navbar from "./Pages/Navbar";
 import Recommendations from "./Pages/Recommendations";
 import History from './Pages/History'
 import MovieSearch from "./Pages/MovieSearch"
-import Footer from "./Components/Footer"
+import Footer from "./Pages/Footer"
 import { Context } from "./Context";
 
 import {StyledMainInfoWrapper, StyledTitle, StyledDescription, PageContainer, ContentWrapper} from "./StyledComponents/MainInfo"
