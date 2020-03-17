@@ -18,12 +18,18 @@ const fade = keyframes`
 
 export default styled.i`
     position: absolute;
-    top: 222px;
-    left: 5px;
+    bottom: 3px;
+    left: 3px;
     font-size: 25px;
     color: ${props => props.good ? "#5FEF64" : props.ok ? "#FCFF51" : props.bad ? "#D05353" : ""};
     animation: ${fade} 0.55s;
     animation-fill-mode: forwards;
+
+    /* 4k and Big screens */
+    @media (min-width : 1824px) {
+        font-size: 35px;
+       
+    }
     
 `
 

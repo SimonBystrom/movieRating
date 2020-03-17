@@ -64,7 +64,7 @@ function Navbar() {
           {languageOnPage === "jp" ?  japaneseHistory: languageOnPage === "en-US" ?  englishHistory : "History"}
         </StyledLink>
     
-        
+    
         
         <div style={{display: "flex"}}>
           <StyledLink  onClick={() => setLanguage("en-US")}>

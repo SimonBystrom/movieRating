@@ -22,6 +22,11 @@ export const NavbarStyle = styled.div`
     z-index: 100;
     top: 0;
     left: 0;
+
+    /* 4K  and big screens*/
+    @media (min-width : 1824px) {
+        font-size: 25px;
+    }
 `
 
 
@@ -32,4 +37,9 @@ export const NavbarContainer = styled.div`
     
     width: 60%;
     padding: 0px 0px 0px 5%; 
+
+      /* 4K  and big screens*/
+      @media (min-width : 1824px) {
+        width: 80%;
+    }
 `

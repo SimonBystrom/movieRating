@@ -24,5 +24,11 @@ export default styled.i`
     color: #EDF060;
     animation: ${fade} 0.55s;
     animation-fill-mode: forwards;
+
+     /* 4k and Big screens */
+     @media (min-width : 1824px) {
+        font-size: 35px;
+        
+    }
 `
 

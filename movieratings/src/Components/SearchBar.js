@@ -1,6 +1,5 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext } from "react";
 import { Context } from "../Context";
-import styled, {keyframes} from 'styled-components'
 
 import {SearchBarStyled, SearchIcon, SearchLanguage} from "../StyledComponents/SearchBarStyled"
 import Japanese from "../FlagIcons/japan-hex.png"

@@ -4,17 +4,28 @@ import styled from 'styled-components'
 
 // wraps the render (container) of all movieElements
 export const MovieWrapper = styled.div`
-    padding-left: ${props => props.recommendations ? "30px" : "20px"};
+    padding-left: ${props => props.recommendations ? "30px" : "35px"};
     padding-top: 140px;
-    padding-right: 20px;
+    
     padding-bottom: 50px;
     margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
-    width: 1400px;
+    justify-content: flex-start;
+    width: 96%;
     
-    
-
+    /*big screens */
+    @media (min-width : 1824px) and (max-width: 1921px){
+        padding-left: ${props => props.recommendations ? "110px" : "35px"};
+        padding-top: 160px;
+        margin-bottom: 25px;
+    }
+    /* 4K */
+    @media (min-width : 1921px){
+        padding-left: ${props => props.recommendations ? "60px" : "180px"};
+        padding-top: 170px;
+        margin-bottom: 80px;
+    }
 `
 
 // wraps the individual movieElements (container)
@@ -41,6 +52,17 @@ export const MovieElementWrapper =  styled.div`
         transition: all 0.5s;
         box-shadow: 0px 6px 10px 4px rgba(0,0,0,0.75);
     }
+
+    /*big screens */
+    @media (min-width : 1824px) and (max-width: 1921px){
+       margin-left: 20px;
+       margin-bottom: 55px;
+    }
+    /* 4K */
+    @media (min-width : 1921px){
+        margin-left: 20px;
+        margin-bottom: 55px;
+    }
 `
 
 
@@ -48,11 +70,31 @@ export const MovieElementWrapper =  styled.div`
 // styles the movie poster element
 export const MovieImg =  styled.img`
     
-    width: ${props => props.history ? "185px" : props.search ?  "185px" : props.recommendation ? "260px" : "200px"};
+    width: ${props => props.history ? "180px" : props.search ?  "180px" : props.recommendation ? "260px" : "200px"};
     height: ${props => props.history ? "250px" : props.search ?  "250px" : props.recommendation ? "350px" : "350px"};
+
+   
     display: block; 
    
     border-radius: ${props => props.history ? "5px" : props.search ?  "5px" : props.recommendation ? "5px" : "0px"};
     
-    
+    /* Ipads */
+    @media (min-device-width : 768px) and (max-device-width : 1366px) and (orientation : landscape) {
+        width: ${props => props.history ? "140px" : props.search ?  "140px" : props.recommendation ? "220px" : "200px"};
+        height: ${props => props.history ? "210px" : props.search ?  "210px" : props.recommendation ? "320px" : "320px"};
+        
+    }
+    /*big screens */
+    @media (min-width : 1824px)and (max-width: 1921px) {
+        width: ${props => props.history ? "270px" : props.search ?  "270px" : props.recommendation ? "300px" : "200px"};
+        height: ${props => props.history ? "340px" : props.search ?  "340px" : props.recommendation ? "390px" : "350px"};
+
+    }
+
+    /* 4K */
+    @media (min-width : 1921px) {
+        width: ${props => props.history ? "330px" : props.search ?  "330px" : props.recommendation ? "450px" : "200px"};
+        height: ${props => props.history ? "400px" : props.search ?  "400px" : props.recommendation ? "550px" : "350px"};
+
+    }
 `

@@ -11,7 +11,7 @@ export const StyledFooterWrapper = styled.div`
     color: white;
     padding: 20px 0px 20px 0px ;
 
-    width: 100vw;
+    width: 100%;
 
     margin-top: -50px;
     height: 50px;
@@ -19,6 +19,13 @@ export const StyledFooterWrapper = styled.div`
     bottom: 0;
     left: 0;
     font-size: 12px;
+
+    /* 4k and Big screens */
+    @media (min-width : 1824px) {
+        font-size: 18px;
+        height: 70px;
+        margin-top: -70px;
+    }
       
 `
 
@@ -29,6 +36,10 @@ export const FooterContainer = styled.div`
     width: 80%;
     padding: 0px 250px 0px 250px;
     
+    /* Ipads  */
+    @media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+        padding: 0px 100px 0px 100px;
+    }
 `
 
 export const StyledFooterImg = styled.img`
@@ -42,11 +53,23 @@ export const StyledFooterAnchor = styled.a`
     &:link {text-decoration: none;}
     &:hover {text-decoration: ${props => props.git ? "none" : props.codePen ? "none" : "underline"}};
     color: white;
+
+      /* 4k and Big screens */
+      @media (min-width : 1824px) {
+        font-size: 18px;
+
+    }
 `
 
 export const StyledFooterP = styled.p`
     font-size: 12px;
     margin-top: ${props => props.credits ? "10px" : "30px"};
+
+      /* 4k and Big screens */
+      @media (min-width : 1824px){
+        font-size: 18px;
+
+    }
     
 `
 

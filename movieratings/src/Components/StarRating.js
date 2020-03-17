@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useSaveToLocal} from "../useSaveToLocal"
 
-import {StarWrapper, StarContainer, StyledSaveButton, StyledStar} from "../StyledComponents/StarsComp"
+import {StarWrapper, StarContainer, StyledSaveButton, StyledStar, StyledUser, Star, Storage} from "../StyledComponents/StarsComp"
 
 
 /* 
@@ -24,7 +24,7 @@ function StarRatings({movieData}) {
   const storage = () => {
       if(JSON.parse(localStorage.getItem(movieData.id))){
       return (
-          <h3 style={{paddingLeft: "10px", color: "white"}}>{JSON.parse(localStorage.getItem(movieData.id)).rating}</h3> 
+          <Storage >{JSON.parse(localStorage.getItem(movieData.id)).rating}</Storage> 
         )
       } else if (!JSON.parse(localStorage.getItem(movieData.id)))
         return ""
@@ -33,37 +33,36 @@ function StarRatings({movieData}) {
   // Generates the unfilled Star
   let star = (user, rating) => {
     return (
-      <i
+      <Star
         onPointerEnter={() => rateMovie(user, rating)}
         //  onClick={() => rateMovie(user, rating)}
         className="ri-star-line"
-        style={{color: "white"}}
-      ></i>
+      ></Star>
     );
   };
   // Generates the filled Star
   let starFilled = (user, rating) => {
     return (
-      <i
+      <Star
         onPointerLeave={() => unRateMovie(user, rating)}
         onClick={() => rateMovie(user, rating)}
         className="ri-star-fill"
-        style={{color: "white", cursor: "pointer"}}
-      ></i>
+        fill
+      ></Star>
     );
   };
   // Generates gold star
   let goldStar = () => {
-    return <i className="ri-star-fill" style={{ color: "#EDF060" }}></i>;
+    return <Star className="ri-star-fill" gold></Star>;
   };
 
   // Generates normal (unclickable) star. (used after rating has been set)
   let normalStar = () => {
-    return <i 
+    return <Star 
               className="ri-star-line"
-              style={{color: "white"}}>
+              >
 
-            </i>;
+            </Star>;
   };
 
   // onClick function -> runs the localStorage save function ()
@@ -204,8 +203,8 @@ function StarRatings({movieData}) {
 
     <StarWrapper>
       <div >
-        <p style={{margin: "7px", marginRight: "20px", color: "white"}}>User 1  </p>
-        <p style={{margin: "7px", marginRight: "20px", color: "white"}}>User 2  </p>
+        <StyledUser >User 1  </StyledUser>
+        <StyledUser >User 2  </StyledUser>
       </div>
       
       

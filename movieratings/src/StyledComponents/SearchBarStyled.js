@@ -15,6 +15,20 @@ import styled from 'styled-components'
 
     height: 35px;
     width: 400px;
+
+    /* Ipads */
+    @media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+        width: 220px;
+    }
+
+    /* 4K  and big screens*/
+    @media (min-width : 1824px) {
+        width: 600px;
+        height: 45px;
+        font-size: 27px;
+        padding-left: 60px;
+        
+    }
    
     border-bottom: 1px solid white;
     border-top: 0px;
@@ -34,6 +48,11 @@ import styled from 'styled-components'
     &::placeholder{
         font-size: 13px;
         opacity: 0.7;
+
+        /* 4K  and big screens */
+        @media (min-width : 1824px){
+            font-size: 20px;
+        }
     }
     &:focus{
         cursor: text;
@@ -64,6 +83,13 @@ export const SearchIcon = styled.i.attrs({
   } 
   cursor: text;
 
+   /* 4K  and big screens*/
+   @media (min-width : 1824px) {
+        
+        font-size: 35px;
+        
+    }
+
   `
 
 
@@ -73,6 +99,18 @@ export const SearchIcon = styled.i.attrs({
     position: absolute;
     top: 8px;
     right: 2%;
+
+    /* Ipads */
+    @media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+        right: 8%
+    }
+    /* 4K  and big screens*/
+    @media (min-width : 1824px) {
+        right: -1%;
+        height: 35px;
+       
+    }
+
     opacity: 0;
     cursor: text;
     filter: grayscale(100%);
