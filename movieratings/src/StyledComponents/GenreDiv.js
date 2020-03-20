@@ -10,14 +10,9 @@ export default styled.div`
     padding: 3px 10px;
     margin: 5px;
 
-    /*big screens */
-    @media (min-width : 1824px)and (max-width: 1921px) {
-        font-size: 25px;
 
-    }
-
-    /* 4K */
-    @media (min-width : 1921px) {
+    /* 4K big screens*/
+    @media only screen and (min-width : 1824px) {
         font-size: 25px;
 
     }

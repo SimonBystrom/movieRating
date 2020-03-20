@@ -27,13 +27,20 @@ export const StyledTitle = styled.h1`
     font-family: "Ubuntu";
    
     /* Ipads */
-    @media (min-device-width : 768px) and (max-device-width : 1366px) and (orientation : landscape){
+    @media only screen  and (min-device-width : 768px) and (max-device-width : 1366px) and (orientation : landscape){
        
         left: ${ props => props.mainPage ? "20px" : props.searchPage ? "200px" : "120px"};
         top: ${props => props.mainPage ? "100px" : props.searchPage ? "140px" : "130px"};
     }
+
+    /* Laptops */
+    @media only screen  and (min-width : 1224px) {
+        top: ${props => props.mainPage ? "130px" : props.searchPage ? "180px" : "130px"};
+        left: ${ props => props.mainPage ? "90px" : props.searchPage ? "400px" : "120px"};
+
+    }
       /* 4K  and big screens*/
-      @media (min-width : 1824px) {
+    @media only screen  and (min-width : 1824px) {
         font-size: 45px;
         left: ${ props => props.mainPage ? "170px" : props.searchPage ? "600px" : "120px"};
         top: ${props => props.mainPage ? "100px" : props.searchPage ? "140px" : "130px"};
@@ -52,15 +59,25 @@ export const StyledDescription = styled.p`
     font-size: ${props => props.lang === "jp" ? "14px" : "16px"};
   
     /* Ipads */
-    @media (min-device-width : 768px) and (max-device-width : 1366px) and (orientation : landscape){
+    @media only screen  and (min-device-width : 768px) and (max-device-width : 1366px) and (orientation : landscape){
         margin-left: -100px;
         max-width: ${props => props.first ? "420px" : props.second ? "320px" : props.third ? "300px" : props.fourth ? "280px" : "0px"};
         top: ${props => props.first ? "160px" : props.second ? "245px" : props.third ? "330px" : props.fourth ? "440px" : "0px"};
         font-size: 20px;
     }
 
+    /* Laptops */
+    @media only screen  and (min-width : 1224px) {
+        position: absolute;
+        top: ${props => props.first ? "200px" : props.second ? "270px" : props.third ? "360px" : props.fourth ? "450px" : "0px"};
+        left: 100px;
+        color: white;
+        font-family: "Ubuntu Condensed";
+        max-width: ${props => props.first ? "450px" : props.second ? "220px" : props.third ? "250px" : props.fourth ? "350px" : "0px"};
+    }
+
      /* big screens*/
-     @media (min-width : 1824px) and (max-width: 1921px) {
+     @media only screen  and (min-width : 1824px) and (max-width: 1921px) {
         font-size: 25px;
         left: 200px;
         max-width: ${props => props.first ? "550px" : props.second ? "520px" : props.third ? "450px" : props.fourth ? "480px" : "0px"};
@@ -68,7 +85,7 @@ export const StyledDescription = styled.p`
     }
 
     /* 4K */
-     @media (min-width : 1921px) {
+     @media only screen  and (min-width : 1921px) {
         font-size: 25px;
         left: 200px;
         max-width: ${props => props.first ? "550px" : props.second ? "520px" : props.third ? "400px" : props.fourth ? "480px" : "0px"};

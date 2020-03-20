@@ -11,7 +11,7 @@ export const StyledFooterWrapper = styled.div`
     color: white;
     padding: 20px 0px 20px 0px ;
 
-    width: 100%;
+    width: 100vw;
 
     margin-top: -50px;
     height: 50px;
@@ -21,7 +21,7 @@ export const StyledFooterWrapper = styled.div`
     font-size: 12px;
 
     /* 4k and Big screens */
-    @media (min-width : 1824px) {
+    @media only screen and (min-width : 1824px) {
         font-size: 18px;
         height: 70px;
         margin-top: -70px;
@@ -37,7 +37,7 @@ export const FooterContainer = styled.div`
     padding: 0px 250px 0px 250px;
     
     /* Ipads  */
-    @media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
         padding: 0px 100px 0px 100px;
     }
 `
@@ -55,7 +55,7 @@ export const StyledFooterAnchor = styled.a`
     color: white;
 
       /* 4k and Big screens */
-      @media (min-width : 1824px) {
+      @media only screen and (min-width : 1824px) {
         font-size: 18px;
 
     }
@@ -66,7 +66,7 @@ export const StyledFooterP = styled.p`
     margin-top: ${props => props.credits ? "10px" : "30px"};
 
       /* 4k and Big screens */
-      @media (min-width : 1824px){
+      @media only screen and (min-width : 1824px){
         font-size: 18px;
 
     }

@@ -6,7 +6,7 @@ import styled from 'styled-components'
     transition: all, 0.5s;
 
     padding-left: 45px;
-    padding-bottom: 3px;
+    padding-bottom: 0px;
 
     margin-left: 10%;
     margin-right: 60px;
@@ -75,7 +75,7 @@ export const SearchIcon = styled.i.attrs({
   color: white;
   opacity: 0.2;
   position: absolute;
-  top: 8px;
+  top: 6px;
   left: 10%;
   transition: all, 0.5s;
    ${SearchBarStyled}:focus ~ & {
@@ -84,7 +84,7 @@ export const SearchIcon = styled.i.attrs({
   cursor: text;
 
    /* 4K  and big screens*/
-   @media (min-width : 1824px) {
+   @media only screen and (min-width : 1824px) {
         
         font-size: 35px;
         
@@ -97,15 +97,15 @@ export const SearchIcon = styled.i.attrs({
     transition: all, 0.4s;
     height: 25px;
     position: absolute;
-    top: 8px;
+    top: 6px;
     right: 2%;
 
     /* Ipads */
-    @media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
         right: 8%
     }
     /* 4K  and big screens*/
-    @media (min-width : 1824px) {
+    @media only screen and (min-width : 1824px) {
         right: -1%;
         height: 35px;
        

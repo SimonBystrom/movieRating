@@ -30,14 +30,14 @@ export const ActiveImg = styled.img`
     position: relative;
 
      /*big screens */
-     @media (min-width : 1824px)and (max-width: 1921px) {
+     @media only screen and (min-width : 1824px)and (max-width: 1921px) {
         width: 1000px;
         height: 900px;
 
     }
 
     /* 4K */
-    @media (min-width : 1921px) {
+    @media only screen and (min-width : 1921px) {
         width: 1000px;
         height: 900px;
 
@@ -53,13 +53,13 @@ export const ActiveTitle =  styled.h1`
     font-weight: 2000;
 
     /*big screens */
-    @media (min-width : 1824px)and (max-width: 1921px) {
+    @media only screen and (min-width : 1824px)and (max-width: 1921px) {
         font-size: 90px;
 
     }
 
     /* 4K */
-    @media (min-width : 1921px) {
+    @media only screen and (min-width : 1921px) {
         font-size: 90px;
 
     }
@@ -73,13 +73,13 @@ export const ActiveRelease =  styled.h2`
     font-size: 25px;
 
     /*big screens */
-    @media (min-width : 1824px)and (max-width: 1921px) {
+    @media only screen and (min-width : 1824px)and (max-width: 1921px) {
         font-size: 45px;
 
     }
 
     /* 4K */
-    @media (min-width : 1921px) {
+    @media only screen and (min-width : 1921px) {
         font-size: 45px;
 
     }
@@ -92,13 +92,13 @@ export const ActiveRating = styled.h4`
     font-family: "Ubuntu Condensed" bold;
 
     /*big screens */
-    @media (min-width : 1824px)and (max-width: 1921px) {
+    @media only screen and (min-width : 1824px)and (max-width: 1921px) {
         font-size: 35px;
 
     }
 
     /* 4K */
-    @media (min-width : 1921px) {
+    @media only screen and (min-width : 1921px) {
         font-size: 35px;
 
     }
@@ -112,14 +112,14 @@ export const ActiveDescription =  styled.p`
     max-width: 500px;
 
     /*big screens */
-    @media (min-width : 1824px)and (max-width: 1921px) {
+    @media only screen and (min-width : 1824px)and (max-width: 1921px) {
         font-size: 25px;
         max-width: 800px;
 
     }
 
     /* 4K */
-    @media (min-width : 1921px) {
+    @media only screen and (min-width : 1921px) {
         font-size: 25px;
         max-width: 800px;
     }
@@ -139,13 +139,13 @@ export const StyledBackArrow = styled.i`
 
 
      /*big screens */
-     @media (min-width : 1824px)and (max-width: 1921px) {
+     @media only screen and (min-width : 1824px)and (max-width: 1921px) {
         font-size: 100px;
 
     }
 
     /* 4K */
-    @media (min-width : 1921px) {
+    @media only screen and (min-width : 1921px) {
         font-size: 100px;
 
     }

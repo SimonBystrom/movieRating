@@ -46,7 +46,7 @@ export const StyledSaveButton = styled.i`
 
 
     /* 4K and Big Screens*/
-    @media (min-width : 1824px) {
+    @media only screen and (min-width : 1824px) {
         font-size: 65px;
 
     }
@@ -61,7 +61,7 @@ export const StyledStar = styled.i`
     
 
     /* 4K * and big screens */
-    @media (min-width : 1824px) {
+    @media only screen and (min-width : 1824px) {
         font-size: 55px;
 
     }
@@ -77,7 +77,7 @@ export const StyledUser = styled.p`
  
 
     /* 4K * and big screens */
-    @media (min-width : 1824px) {
+    @media only screen and (min-width : 1824px) {
         font-size: 24px;
 
     }
@@ -88,7 +88,8 @@ export const Star = styled.i`
     color: ${props => props.gold ? "#EDF060" : "white"};
     cursor: ${props => props.fill ? "pointer" : "default"};
 
-    @media (min-width : 1824px) {
+     /* 4K * and big screens */
+    @media only screen and (min-width : 1824px) {
         font-size: 30px;
 
     }
@@ -98,7 +99,8 @@ export const Storage = styled.h3`
     padding-left: 10px;
     color: white;
 
-    @media (min-width : 1824px) {
+    /* 4K * and big screens */
+    @media only screen and (min-width : 1824px) {
         font-size: 30px;
         padding-left: 20px;
     }

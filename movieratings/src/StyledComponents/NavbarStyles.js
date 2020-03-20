@@ -24,7 +24,7 @@ export const NavbarStyle = styled.div`
     left: 0;
 
     /* 4K  and big screens*/
-    @media (min-width : 1824px) {
+    @media only screen and (min-width : 1824px) {
         font-size: 25px;
     }
 `
@@ -39,7 +39,7 @@ export const NavbarContainer = styled.div`
     padding: 0px 0px 0px 5%; 
 
       /* 4K  and big screens*/
-      @media (min-width : 1824px) {
+      @media only screen and (min-width : 1824px) {
         width: 80%;
     }
 `

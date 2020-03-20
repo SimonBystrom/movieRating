@@ -26,7 +26,7 @@ export default styled.i`
     animation-fill-mode: forwards;
 
     /* 4k and Big screens */
-    @media (min-width : 1824px) {
+    @media only screen and (min-width : 1824px) {
         font-size: 35px;
        
     }
