@@ -26,15 +26,16 @@ export const MovieWrapper = styled.div`
     
     /*big screens */
     @media only screen and (min-width : 1824px) and (max-width: 1921px){
-        padding-left: ${props => props.recommendations ? "110px" : "35px"};
+        padding-left: ${props => props.recommendations ? "110px" : "4%"};
         padding-top: 160px;
         margin-bottom: 25px;
     }
     /* 4K */
     @media only screen and (min-width : 1921px){
-        padding-left: ${props => props.recommendations ? "60px" : "180px"};
+        padding-left: ${props => props.recommendations ? "60px" : "45px"};
         padding-top: 170px;
         margin-bottom: 80px;
+        width: 96%
     }
 `
 
