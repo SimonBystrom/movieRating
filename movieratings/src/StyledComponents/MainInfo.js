@@ -27,11 +27,11 @@ export const StyledTitle = styled.h1`
     font-family: "Ubuntu";
    
     /* Ipads */
-    @media only screen  and (min-device-width : 768px) and (max-device-width : 1366px) and (orientation : landscape){
+    @media only screen  and (min-device-width : 768px) and (max-device-width : 1223px) and (orientation : landscape){
        
         left: ${ props => props.mainPage ? "20px" : props.searchPage ? "200px" : "120px"};
         top: ${props => props.mainPage ? "100px" : props.searchPage ? "140px" : "130px"};
-    }
+    } 
 
     /* Laptops */
     @media only screen  and (min-width : 1224px) {
@@ -59,12 +59,12 @@ export const StyledDescription = styled.p`
     font-size: ${props => props.lang === "jp" ? "14px" : "16px"};
   
     /* Ipads */
-    @media only screen  and (min-device-width : 768px) and (max-device-width : 1366px) and (orientation : landscape){
-        margin-left: -100px;
+     @media only screen  and (min-device-width : 768px) and (max-device-width : 1223px) and (orientation : landscape){
+       margin-left: -100px;
         max-width: ${props => props.first ? "420px" : props.second ? "320px" : props.third ? "300px" : props.fourth ? "280px" : "0px"};
         top: ${props => props.first ? "160px" : props.second ? "245px" : props.third ? "330px" : props.fourth ? "440px" : "0px"};
         font-size: 20px;
-    }
+    } 
 
     /* Laptops */
     @media only screen  and (min-width : 1224px) {
