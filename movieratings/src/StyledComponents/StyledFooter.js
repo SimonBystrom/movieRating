@@ -75,7 +75,7 @@ export const StyledFooterP = styled.p`
 
 export const StyledFooterSocial = styled.i`
     font-size: 40px;
-    margin-right: 50px;
+    /* padding-right: 50px; */
    
     
 `

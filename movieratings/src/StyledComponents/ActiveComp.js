@@ -108,6 +108,7 @@ export const ActiveRating = styled.h4`
 
 
 export const ActiveDescription =  styled.p`
+    
     color: white;
     max-width: 500px;
 

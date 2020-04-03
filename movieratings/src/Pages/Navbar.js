@@ -11,6 +11,7 @@ import English from "../FlagIcons/united-kingdom.png"
 
 
 
+
 // the Styled Links
 
 const StyledLink = styled(Link)`
@@ -19,6 +20,9 @@ const StyledLink = styled(Link)`
   font-weight: bold;
   margin-left: 20px;
   white-space: nowrap;
+
+user-select: ${props => props.search ? "none" : ""};
+  -webkit-user-drag: ${props => props.search ? "none" : ""};
 `;
 
 
@@ -44,7 +48,7 @@ function Navbar() {
           <h1 style={{fontFamily: "Ubuntu", fontWeight: "3000", color: "#D05353",}}>Movie Ratings</h1>
         </StyledLink>
 
-        <StyledLink to="/search" onClick={window.scrollTo(0,0)}>
+        <StyledLink search to="/search" onClick={window.scrollTo(0,0)}>
           <SearchBar className="search-bar" />
         </StyledLink>
           
