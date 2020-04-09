@@ -23,6 +23,7 @@ const StyledLink = styled(Link)`
 
 user-select: ${props => props.search ? "none" : ""};
   -webkit-user-drag: ${props => props.search ? "none" : ""};
+  -moz-user-select: ${props => props.search ? "none" : ""};
 `;
 
 
